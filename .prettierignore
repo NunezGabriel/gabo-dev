@@ -1,0 +1,5 @@
+./views/HomeView.tsx
+--- a/file:///home/gabo/Documents/projects/gabo-dev/views/HomeView.tsx
++++ b/file:///home/gabo/Documents/projects/gabo-dev/views/HomeView.tsx
+@@ -1,6 +1,10 @@import React from "react";
++import { useTranslations } from "next-intl";               

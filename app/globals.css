@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+body {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.navButton {
+}
+
+.arrow {
+  transition: 0.3s;
+  transform: rotate(-40deg);
+}
+
+.navButton:hover .arrow {
+  transform: rotate(0deg);
+}
+
+.name {
+  display: block;
+}
+
+.nameHidden {
+  display: none;
+}
+
+.name:hover .nameHidden {
+  display: block;
+}
+.nameHidden:hover .name {
+  display: none;
+}
