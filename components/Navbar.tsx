@@ -4,7 +4,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 const Navbar = () => {
   return (
     <div className="border-b-[1px] border-gray-500 w-full px-10 py-7 rounded-b-3xl flex items-center justify-between">
-      <h1 className="text-2xl name">Gabo Dev {"</>"}</h1>
+      <h1 className="text-2xl name">GaboDev {"</>"}</h1>
       <h1 className="text-2xl nameHidden">Gabo Dev {":<:"}</h1>
 
       <section className="flex items-center gap-4">
