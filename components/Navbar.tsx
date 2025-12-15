@@ -45,28 +45,28 @@ const Navbar = () => {
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <Image
-          src="/logoGab.png"
-          alt="GaboDev Logo"
-          width={120}
-          height={40}
-          priority
-        />
+        <div className="logo-wrapper">
+          <span className="logo-sizer">GabrielNA:&lt;</span>
+          <span className="logo-text primary text-gray-300">GabrielNA❖</span>
+          <span className="logo-text secondary text-[#64ffc5]">
+            GaboDev&lt;/&gt;
+          </span>
+        </div>
 
         {/* Desktop Menu */}
         <section className="hidden md:flex items-center gap-4">
           <Link
             href={"/"}
-            className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton"
+            className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton "
           >
-            <h1>Work</h1>
+            <h1 className="text-gray-300">Work</h1>
             <IoIosArrowRoundForward className="arrow" size={30} />
           </Link>
           <Link
             href={"/"}
             className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton"
           >
-            <h1>About</h1>
+            <h1 className="text-gray-300">About</h1>
             <IoIosArrowRoundForward className="arrow" size={30} />
           </Link>
         </section>
