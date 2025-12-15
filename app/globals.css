@@ -33,3 +33,46 @@ body {
 .nameHidden:hover .name {
   display: none;
 }
+
+/* ===================================*/
+.logo-sizer {
+  visibility: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.logo-wrapper {
+  position: relative;
+  height: 32px;
+  overflow: hidden;
+  cursor: pointer;
+  width: max-content;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  font-size: x-large;
+}
+
+.logo-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.35s ease;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.primary {
+  transform: translateY(0%);
+}
+
+.secondary {
+  transform: translateY(100%);
+}
+
+.logo-wrapper:hover .primary {
+  transform: translateY(-100%);
+}
+
+.logo-wrapper:hover .secondary {
+  transform: translateY(0%);
+}
