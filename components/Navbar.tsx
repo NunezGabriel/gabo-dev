@@ -6,6 +6,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { useState, useEffect } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import GradientText from "./GradientText";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -46,7 +46,7 @@ export default function PresentationSection() {
           <div className="mt-4">
             <Link
               href={"/"}
-              className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton max-w-fit border-[1px] border-gray-500"
+              className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton max-w-fit "
             >
               <h1 className="text-gray-300 text-sm tracking-wide uppercase">
                 More
