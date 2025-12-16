@@ -69,14 +69,14 @@ const techLogos = [
 const SkillsSection = () => {
   return (
     <div>
-      <div className="flex gap-20 flex-col py-24">
+      <div className="flex gap-20 flex-col pt-24 pb-12">
         <div className="mx-auto max-w-[1200px] px-6 flex items-start w-full">
           <span className="p-4 bg-[#111111] rounded-3xl w-fit">
             <GradientText
               colors={["#cdcfd2", "#6a7271", "#cdcfd2", "#6a7271", "#cdcfd2"]}
-              animationSpeed={3}
+              animationSpeed={6}
               showBorder={false}
-              className="text-xl"
+              className="text-xl md:text-2xl"
             >
               Tech Stack
             </GradientText>
