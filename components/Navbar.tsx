@@ -42,14 +42,14 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 right-0 z-50 border-b-[1px] border-gray-500 w-full px-10 py-7 rounded-b-3xl flex items-center justify-between bg-[#1e1e1e]/30 backdrop-blur-md transition-transform duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 border-b-[1px] border-gray-500 w-full px-10 py-7 rounded-b-3xl flex items-center justify-between bg-[#000]/70 backdrop-blur-md transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="logo-wrapper">
           <span className="logo-sizer">GabrielNA:&lt;</span>
           <span className="logo-text primary text-gray-300">GabrielNA❖</span>
-          <span className="logo-text secondary text-[#64ffc5]">
+          <span className="logo-text secondary text-gray-300">
             GaboDev&lt;/&gt;
           </span>
         </div>

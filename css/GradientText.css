@@ -8,7 +8,7 @@
   justify-content: center;
   border-radius: 1.25rem;
   font-weight: 500;
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */ /* aqui es donde esta el backgorund, agregalo de vuelta si da erroes :D*/
   transition: box-shadow 0.5s ease-out;
   overflow: hidden;
   cursor: pointer;

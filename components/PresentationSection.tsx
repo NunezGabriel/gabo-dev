@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import GradientText from "./GradientText";
 
 export default function PresentationSection() {
   return (
@@ -34,11 +35,15 @@ export default function PresentationSection() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center gap-8">
-          <h1 className="text-gray-200 text-6xl leading-tight">
+        <div className="flex flex-col justify-center gap-8 ">
+          <GradientText
+            colors={["#cdcfd2", "#6a7271", "#cdcfd2", "#6a7271", "#cdcfd2"]}
+            animationSpeed={5}
+            showBorder={false}
+            className="text-6xl leading-tight"
+          >
             Gabriel Nunez Arenas
-          </h1>
-
+          </GradientText>
           <h2 className="text-gray-500 text-xl max-w-md leading-relaxed">
             Software Developer, crafting thoughtful solutions through code.
           </h2>
@@ -48,7 +53,7 @@ export default function PresentationSection() {
               href={"/"}
               className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton max-w-fit "
             >
-              <h1 className="text-gray-300 text-sm tracking-wide uppercase">
+              <h1 className="text-gray-300 text-xl tracking-wide uppercase">
                 More
               </h1>
 
