@@ -11,6 +11,7 @@ import {
   SiDocker,
   SiGit,
   SiPython,
+  SiLinux,
 } from "react-icons/si";
 
 const techLogos = [
@@ -64,13 +65,18 @@ const techLogos = [
     title: "Git",
     href: "https://git.com",
   },
+  {
+    node: <SiLinux color="#6a7271" />,
+    title: "Linux",
+    href: "https://linux.com",
+  },
 ];
 
 const SkillsSection = () => {
   return (
     <div>
       <div className="flex gap-20 flex-col pt-24 pb-12">
-        <div className="mx-auto max-w-[1200px] px-6 flex items-start w-full">
+        <div className="mx-auto max-w-[1450px] px-6 flex items-start w-full">
           <span className="p-4 bg-[#111111] rounded-3xl w-fit">
             <GradientText
               colors={["#cdcfd2", "#6a7271", "#cdcfd2", "#6a7271", "#cdcfd2"]}

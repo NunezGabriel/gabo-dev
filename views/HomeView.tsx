@@ -1,6 +1,7 @@
 import PresentationSection from "@/components/PresentationSection";
 import SkillsSection from "@/components/SkillsSection";
 import LatestProjectSection from "@/components/LastProjetSection";
+import ContactSection from "@/components/ContactSection";
 
 const HomeView = () => {
   return (
@@ -8,6 +9,7 @@ const HomeView = () => {
       <PresentationSection />
       <SkillsSection />
       <LatestProjectSection />
+      <ContactSection />
     </div>
   );
 };

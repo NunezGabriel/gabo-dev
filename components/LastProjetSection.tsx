@@ -16,7 +16,7 @@ const TexchColors = {
 export default function LatestProjectSection() {
   return (
     <div>
-      <div className="mx-auto max-w-[1200px] px-6 flex items-start w-full">
+      <div className="mx-auto max-w-[1450px] px-6 flex items-start w-full">
         <span className="p-4 bg-[#111111] rounded-3xl w-fit">
           <GradientText
             colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -55,7 +55,8 @@ export default function LatestProjectSection() {
               <div className="flex flex-wrap gap-3 pt-2">
                 <StarBorder
                   as="span"
-                  className={`px-4 py-1 rounded-full text-sm text-[${TexchColors.django}]`}
+                  className="px-4 py-1 rounded-full text-sm"
+                  style={{ color: TexchColors.django }}
                   color={TexchColors.django}
                   speed="2s"
                   thickness={3}
@@ -65,7 +66,8 @@ export default function LatestProjectSection() {
 
                 <StarBorder
                   as="span"
-                  className={`px-4 py-1 rounded-full text-sm text-[${TexchColors.springboot}]`}
+                  className="px-4 py-1 rounded-full text-sm"
+                  style={{ color: TexchColors.springboot }}
                   color={TexchColors.springboot}
                   speed="2s"
                   thickness={2}
@@ -75,7 +77,8 @@ export default function LatestProjectSection() {
 
                 <StarBorder
                   as="span"
-                  className={`px-4 py-1 rounded-full text-sm text-[${TexchColors.nextjs}]`}
+                  className="px-4 py-1 rounded-full text-sm"
+                  style={{ color: TexchColors.nextjs }}
                   color={TexchColors.nextjs}
                   speed="2s"
                   thickness={2}
@@ -85,7 +88,8 @@ export default function LatestProjectSection() {
 
                 <StarBorder
                   as="span"
-                  className={`px-4 py-1 rounded-full text-sm text-[${TexchColors.postgresql}]`}
+                  className="px-4 py-1 rounded-full text-sm"
+                  style={{ color: TexchColors.postgresql }}
                   color={TexchColors.postgresql}
                   speed="2s"
                   thickness={2}
