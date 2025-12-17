@@ -17,7 +17,7 @@ export default function PresentationSection() {
             handle="javicodes"
             status="Online"
             avatarUrl="avatar.jpg"
-            // iconUrl="code-pattern.svg"
+            iconUrl="/code-pattern.svg"
             showUserInfo={false}
             enableTilt={true}
             enableMobileTilt={false}
