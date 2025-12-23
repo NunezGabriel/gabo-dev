@@ -17,12 +17,12 @@ export default function LatestProjectSection() {
   return (
     <div>
       <div className="mx-auto max-w-[1450px] px-6 flex items-start w-full">
-        <span className="p-4 bg-[#111111] rounded-3xl w-fit">
+        <span className="p-4">
           <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            colors={["#cdcfd2", "#6a7271", "#cdcfd2", "#6a7271", "#cdcfd2"]}
             animationSpeed={6}
             showBorder={false}
-            className="text-xl md:text-2xl"
+            className="text-2xl md:text-5xl"
           >
             Last Project I Worked On
           </GradientText>
@@ -32,12 +32,13 @@ export default function LatestProjectSection() {
       <section className="w-full flex justify-center px-6 pt-24 pb-12">
         <div className="w-full max-w-[1400px] bg-[#0a0a0a] rounded-3xl p-8 md:p-12">
           <div className="relative w-full h-[260px] md:h-[540px] rounded-2xl overflow-hidden mb-8">
-            <Image
-              src="/tuxy.gif"
-              alt="MetalOps preview"
-              fill
-              className="object-cover"
-              priority
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              src="/MetalOps/VideoMetalOps.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
             />
           </div>
 
@@ -125,7 +126,7 @@ export default function LatestProjectSection() {
         </GradientText>
 
         <Link
-          href="/projects"
+          href="/work"
           className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434]
                flex items-center gap-2 navButton border border-gray-600 max-w-fit"
         >
