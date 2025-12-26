@@ -1,5 +1,7 @@
+import AboutView from "@/views/AboutView";
+
 const AboutPage = () => {
-  return <div>hola about</div>;
+  return <AboutView />;
 };
 
 export default AboutPage;
