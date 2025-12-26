@@ -1,4 +1,5 @@
 import AboutSection from "@/components/about/AboutSection";
+import CareerTimeline from "@/components/about/CareerTimelineSection";
 import ExtraSection from "@/components/about/ExtraSection";
 
 const AboutView = () => {
@@ -6,6 +7,7 @@ const AboutView = () => {
     <div>
       <AboutSection />
       <ExtraSection />
+      <CareerTimeline />
     </div>
   );
 };
