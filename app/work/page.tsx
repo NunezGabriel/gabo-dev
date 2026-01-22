@@ -1,5 +1,7 @@
+import WorkView from "@/views/WorkView";
+
 const WorkPage = () => {
-  return <div>hola work</div>;
+  return <WorkView />;
 };
 
 export default WorkPage;
