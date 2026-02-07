@@ -72,7 +72,9 @@ export default function TerminalContactSection() {
               showBorder={false}
               className="text-[0.5rem] md:text-xs leading-tight whitespace-pre"
             >
-              {`                                     y#▓▓▓▓▓▄     
+              {`                                     
+              
+                                      ▓▓▓▓▓▓▓▄     
                                     #▓▓▓▓▓▓▓▓▓    
                       ¿╓╔###║###M╔  ▓▓▓▓▓▓▓▓▓▓    
                     ╙║║║║║║║║║║║║║░ └▓▓▓▓▓▓▓▓┘    
@@ -98,7 +100,7 @@ export default function TerminalContactSection() {
                                        └╙╙╙       
 
            [Ubuntu 24.04 LTS]             
-        I use Ubuntu too btw...`}
+        I use Linux too btw...`}
             </GradientText>
           </div>
         </div>

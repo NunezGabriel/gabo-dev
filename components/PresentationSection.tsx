@@ -13,10 +13,10 @@ export default function PresentationSection() {
         <div className="flex justify-center items-center">
           <ProfileCard
             name="Gabriel Nunez"
-            title="Software Developer"
+            title="Software Engineer"
             handle="javicodes"
             status="Online"
-            avatarUrl="avatar.jpg"
+            avatarUrl="profilePcitureBgBNocuadro.png"
             iconUrl="/code-pattern.svg"
             showUserInfo={false}
             enableTilt={true}
@@ -34,7 +34,7 @@ export default function PresentationSection() {
             Gabriel Nunez Arenas
           </GradientText>
           <h2 className="text-gray-500 text-xl max-w-md leading-relaxed">
-            Software Developer, crafting thoughtful solutions through code.
+            Software Engineer, crafting thoughtful solutions through code.
           </h2>
 
           <div className="mt-4">

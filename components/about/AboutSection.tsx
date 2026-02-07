@@ -12,7 +12,7 @@ export default function AboutSection() {
             shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]"
         >
           <Image
-            src="/avatar.jpg"
+            src="/profilePcitureBgBNocuadro.png"
             alt="Avatar"
             fill
             className="object-cover"
@@ -29,7 +29,7 @@ export default function AboutSection() {
           {/* Caption */}
           <div className="absolute bottom-4 left-6 z-10">
             <p className="text-xs text-gray-300 tracking-wide uppercase">
-              Plaza de Armas - Arequipa
+              Photo Studio - Arequipa
             </p>
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function AboutSection() {
             About Me
           </GradientText>
           <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-            I'm a software developer with a genuine interest in building
+            I'm a software engineer with a genuine interest in building
             thoughtful and practical solutions. I enjoy understanding how things
             work, improving processes, and creating products that make sense
             both technically and for the people who use them. I'm motivated by
