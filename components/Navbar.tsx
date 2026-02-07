@@ -6,6 +6,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { useState, useEffect } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import GradientText from "./GradientText";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,29 +42,29 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 right-0 z-50 border-b-[1px] border-gray-500 w-full px-10 py-7 rounded-b-3xl flex items-center justify-between bg-[#1e1e1e]/30 backdrop-blur-md transition-transform duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 border-b-[1px] border-gray-500 w-full px-10 py-7 rounded-b-3xl flex items-center justify-between bg-[#000]/70 backdrop-blur-md transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="logo-wrapper">
+        <Link href={"/"} className="logo-wrapper">
           <span className="logo-sizer">GabrielNA:&lt;</span>
           <span className="logo-text primary text-gray-300">GabrielNA❖</span>
-          <span className="logo-text secondary text-[#64ffc5]">
+          <span className="logo-text secondary text-gray-300">
             GaboDev&lt;/&gt;
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Menu */}
         <section className="hidden md:flex items-center gap-4">
           <Link
-            href={"/"}
+            href={"/work"}
             className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton "
           >
             <h1 className="text-gray-300">Work</h1>
             <IoIosArrowRoundForward className="arrow" size={30} />
           </Link>
           <Link
-            href={"/"}
+            href={"/about"}
             className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton"
           >
             <h1 className="text-gray-300">About</h1>
@@ -85,7 +86,7 @@ const Navbar = () => {
       >
         <div className="flex flex-col gap-6 pt-24 px-6">
           <Link
-            href={"/"}
+            href={"/work"}
             onClick={toggleMenu}
             className="py-3 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2"
           >
@@ -93,7 +94,7 @@ const Navbar = () => {
             <IoIosArrowRoundForward className="arrow" size={30} />
           </Link>
           <Link
-            href={"/"}
+            href={"/about"}
             onClick={toggleMenu}
             className="py-3 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2"
           >

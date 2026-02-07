@@ -5,7 +5,7 @@ interface DottedBackgroundProps {
 // components/DottedBackground.tsx
 const DottedBackground: React.FC<DottedBackgroundProps> = ({ children }) => {
   return (
-    <div className="relative min-h-screen w-full bg-[#1e1e1e]">
+    <div className="relative min-h-screen w-full bg-[#000000]">
       <div
         className="absolute inset-0 w-full h-full"
         style={{
