@@ -43,7 +43,7 @@ export default function AboutSection() {
             About Me
           </GradientText>
           <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-            I'm a software developer with a genuine interest in building
+            I'm a software engineer with a genuine interest in building
             thoughtful and practical solutions. I enjoy understanding how things
             work, improving processes, and creating products that make sense
             both technically and for the people who use them. I'm motivated by
