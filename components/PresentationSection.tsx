@@ -16,7 +16,7 @@ export default function PresentationSection() {
             title="Software Developer"
             handle="javicodes"
             status="Online"
-            avatarUrl="avatar.jpg"
+            avatarUrl="profilePcitureBgBNocuadro.png"
             iconUrl="/code-pattern.svg"
             showUserInfo={false}
             enableTilt={true}

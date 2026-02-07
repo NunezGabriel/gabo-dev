@@ -12,7 +12,7 @@ export default function AboutSection() {
             shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]"
         >
           <Image
-            src="/avatar.jpg"
+            src="/profilePcitureBgBNocuadro.png"
             alt="Avatar"
             fill
             className="object-cover"
@@ -29,7 +29,7 @@ export default function AboutSection() {
           {/* Caption */}
           <div className="absolute bottom-4 left-6 z-10">
             <p className="text-xs text-gray-300 tracking-wide uppercase">
-              Plaza de Armas - Arequipa
+              Photo Studio - Arequipa
             </p>
           </div>
         </div>
