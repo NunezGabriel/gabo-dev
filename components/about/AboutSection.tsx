@@ -43,22 +43,23 @@ export default function AboutSection() {
             About Me
           </GradientText>
           <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-            I'm a software engineer with a genuine interest in building
-            thoughtful and practical solutions. I enjoy understanding how things
-            work, improving processes, and creating products that make sense
-            both technically and for the people who use them. I'm motivated by
-            modern technologies, continuous learning, and solving problems that
-            require analysis, clarity, and attention to detail.
+            Software Engineer passionate about building and shipping web systems
+            into production, with experience in web development and cloud-based
+            deployments.
           </p>
           <div className=" ">
             <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-              I strongly value teamwork and clear communication. I consider
-              myself a sociable and reliable person, open to different
-              perspectives, which allows me to collaborate effectively in
-              diverse environments. I believe the best results come from
-              combining solid technical judgment with strong interpersonal
-              skills, mutual respect, and a mindset focused on continuous
-              improvement.
+              I work mainly with JavaScript and Python ecosystems, developing
+              web applications and managing their delivery using Docker, CI/CD
+              pipelines, and cloud platforms such as VPS and PaaS environments.
+            </p>
+            <p className="text-gray-400 leading-relaxed text-sm md:text-base mt-4">
+              I'm a self-taught professional with strong ownership and
+              accountability, comfortable taking responsibility from development
+              to deployment. Currently strengthening my skills in cloud
+              infrastructure and DevOps practices while continuing to deliver
+              reliable web solutions as part of collaborative, high-performing
+              teams.
             </p>
           </div>
         </div>
