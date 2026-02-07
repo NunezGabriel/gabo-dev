@@ -3,6 +3,46 @@
 import GradientText from "@/components/GradientText";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import PixelCard from "../PixelCard";
+import Link from "next/link";
+
+const friends = [
+  {
+    name: "Luciana Gutierrez",
+    title: "Backend Developer",
+    image: "/friends/defaultdevwoman.jpg",
+    website: "https://luciana.dev",
+    color: "pink",
+  },
+  {
+    name: "Josue Urquizo",
+    title: "Backend Developer",
+    image: "/friends/defaultdevman.jpg",
+    website: "https://josue.dev",
+    color: "blue",
+  },
+  {
+    name: "Marco Figueroa",
+    title: "Backend Developer",
+    image: "/friends/defaultdevman.jpg",
+    website: "https://marco.dev",
+    color: "default",
+  },
+  {
+    name: "Carlos Salas",
+    title: "Backend Developer",
+    image: "/friends/defaultdevman.jpg",
+    website: "https://carlos.dev",
+    color: "default",
+  },
+  {
+    name: "Alejandra Mamani",
+    title: "Backend Developer",
+    image: "/friends/defaultdevwoman.jpg",
+    website: "https://alejandra.dev",
+    color: "pink",
+  },
+];
 
 interface Particle {
   id: string;
@@ -65,7 +105,7 @@ const PixelParticleImage = ({
             vy: p.vy + 0.15,
             life: p.life - 0.02,
           }))
-          .filter((p) => p.life > 0 && p.y < 120)
+          .filter((p) => p.life > 0 && p.y < 120),
       );
     }, 16);
 
@@ -176,6 +216,46 @@ const ExtraSection = () => {
             effectively in international and multicultural environments.
           </p>
         </div>
+      </div>
+
+      <div className="mx-auto max-w-[1600px] px-6 flex items-start w-full">
+        <span className="p-4">
+          <GradientText
+            colors={["#cdcfd2", "#6a7271", "#cdcfd2", "#6a7271", "#cdcfd2"]}
+            animationSpeed={6}
+            showBorder={false}
+            className="text-2xl md:text-5xl"
+          >
+            Friends & Partners
+          </GradientText>
+        </span>
+      </div>
+
+      <div className="mx-auto max-w-[1400px] px-6 grid grid-cols-1 md:grid-cols-3 gap-20 w-full">
+        {friends.map((friend) => (
+          <Link href={friend.website} key={friend.name}>
+            <PixelCard variant={friend.color}>
+              <div
+                className="absolute inset-0 w-full h-full rounded-xl overflow-hidden z-0"
+                style={{
+                  backgroundImage: `url(${friend.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                  <h3 className="text-xl font-semibold text-white mb-1">
+                    {friend.name}
+                  </h3>
+                  <p className="text-sm text-gray-300 mb-3">{friend.title}</p>
+                  <p className="text-xs text-gray-400">Visit Website →</p>
+                </div>
+              </div>
+            </PixelCard>
+          </Link>
+        ))}
       </div>
     </div>
   );
