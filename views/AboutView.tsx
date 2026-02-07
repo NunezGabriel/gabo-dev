@@ -6,8 +6,8 @@ const AboutView = () => {
   return (
     <div>
       <AboutSection />
-      <ExtraSection />
       <CareerTimeline />
+      <ExtraSection />
     </div>
   );
 };

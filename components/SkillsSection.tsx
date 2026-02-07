@@ -17,7 +17,13 @@ import {
   SiMongodb,
 } from "react-icons/si";
 
-import { FaLaptopCode, FaServer, FaVial } from "react-icons/fa";
+import {
+  FaLaptopCode,
+  FaServer,
+  FaVial,
+  FaCloud,
+  FaLock,
+} from "react-icons/fa";
 
 const techLogos = [
   {
@@ -144,9 +150,9 @@ const SkillsSection = () => {
             </h3>
 
             <p className="text-sm text-gray-500 leading-relaxed">
-              Building modern, responsive and accessible user interfaces focused
-              on performance, scalability and maintainability, applying design
-              patterns and SOLID principles to ensure clean and reusable code.
+              Building modern, responsive and accessible user interfaces using
+              React, Next.js and TypeScript. Focused on performance, scalability
+              and maintainability with clean, reusable code.
             </p>
           </SpotlightCard>
 
@@ -161,9 +167,9 @@ const SkillsSection = () => {
             </h3>
 
             <p className="text-sm text-gray-500 leading-relaxed">
-              Design and development of secure and scalable RESTful APIs, , data
-              validation and robust server-side architecture following best
-              security practices.
+              Design and development of secure and scalable RESTful APIs with
+              JavaScript/Python ecosystems. Data validation, robust server-side
+              architecture and best security practices.
             </p>
           </SpotlightCard>
 
@@ -180,7 +186,53 @@ const SkillsSection = () => {
             <p className="text-sm text-gray-500 leading-relaxed">
               Application testing, usability validation and UX-focused
               improvements to ensure reliability, clarity and smooth user
-              interaction.
+              interaction. improvements to ensure reliability, clarity and
+              smooth user interaction.
+            </p>
+          </SpotlightCard>
+
+          <SpotlightCard
+            className="max-w-[400px] py-10 px-6 rounded-3xl flex flex-col gap-4"
+            spotlightColor="rgba(0, 200, 100, 0.25)"
+          >
+            <FaCloud className="text-5xl text-gray-300" />
+
+            <h3 className="text-xl font-semibold text-gray-300">
+              Cloud & DevOps (Transitioning)
+            </h3>
+
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Cloud infrastructure deployment, Docker containerization and CI/CD
+              pipeline management. VPS and PaaS environments with focus on
+              production-ready systems
+            </p>
+          </SpotlightCard>
+
+          <SpotlightCard
+            className="max-w-[400px] py-10 px-6 rounded-3xl flex flex-col gap-4 opacity-60"
+            spotlightColor="rgba(100, 100, 100, 0.15)"
+          >
+            <FaLock className="text-5xl text-gray-500" />
+
+            <h3 className="text-xl font-semibold text-gray-500">Coming Soon</h3>
+
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Advanced skills in development and specialized technologies
+              unlocking new opportunities.
+            </p>
+          </SpotlightCard>
+
+          <SpotlightCard
+            className="max-w-[400px] py-10 px-6 rounded-3xl flex flex-col gap-4 opacity-60"
+            spotlightColor="rgba(100, 100, 100, 0.15)"
+          >
+            <FaLock className="text-5xl text-gray-500" />
+
+            <h3 className="text-xl font-semibold text-gray-500">Coming Soon</h3>
+
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Advanced skills in development and specialized technologies
+              unlocking new opportunities.
             </p>
           </SpotlightCard>
         </div>
