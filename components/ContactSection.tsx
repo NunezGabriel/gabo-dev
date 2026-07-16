@@ -1,147 +1,61 @@
-"use client";
+import Reveal from "./Reveal";
+import { socials, profile } from "@/lib/content";
 
-import Link from "next/link";
-import GradientText from "./GradientText";
+const contactLinks = [
+  { label: "GitHub", href: socials.github },
+  { label: "LinkedIn", href: socials.linkedin },
+  { label: "Twitter", href: socials.x },
+  { label: "Instagram", href: socials.instagram },
+];
 
-export default function TerminalContactSection() {
+export default function ContactSection() {
   return (
-    <section className="w-full max-w-[1400px] mx-auto px-6 py-32">
-      <div className="bg-[#0a0a0a] rounded-2xl shadow-2xl p-6 md:p-8 font-mono text-sm md:text-xl">
-        {/* Header fake terminal */}
-        <div className="flex items-center gap-2 mb-6">
-          <span className="w-3 h-3 rounded-full bg-[#ff5500]" />
-          <span className="w-3 h-3 rounded-full bg-[#ffb300]" />
-          <span className="w-3 h-3 rounded-full bg-[#e63d2f]" />
-          <span className="ml-3 text-gray-500">terminal — contact</span>
-        </div>
+    <section className="relative overflow-hidden border-t hairline">
+      <div className="glow" />
 
-        <div className="grid md:grid-cols-2 gap-5">
-          <div>
-            <div className="text-gray-300 leading-relaxed mb-8">
-              <span className="text-[#ff5500]">&gt;</span> If you'd like to talk
-              about work or just say hello, feel free to send me a message.
-            </div>
+      <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center px-6 py-28 text-center md:py-36">
+        <Reveal>
+          <p className="kicker">04 — Contact</p>
+        </Reveal>
 
-            <pre className="text-gray-400 text-xs md:text-sm leading-relaxed mb-6">
-              {`┌──────────────────────────────────────────────┐
-│ Available contact options                    │
-├──────────────────────────────────────────────┤
-│ [1] Email                                    │
-│ [2] GitHub                                   │
-│ [3] LinkedIn                                 │
-└──────────────────────────────────────────────┘`}
-            </pre>
+        <Reveal delay={80}>
+          <h2 className="display-fade mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-6xl">
+            Let’s build something together.
+          </h2>
+        </Reveal>
 
-            <div className="flex flex-col gap-3">
-              <Link
-                href="mailto:gabriel.nunez.arenas@gmail.com"
-                className="text-gray-300 hover:text-[#ff5500] transition"
-              >
-                <span className="text-[#ff5500]">&gt;</span> Email →{" "}
-                <span className="text-[#ffb300]">
-                  gabriel.nunez.arenas@gmail.com
-                </span>
-              </Link>
+        <Reveal delay={160}>
+          <p className="mt-6 max-w-md text-base leading-relaxed text-soft">
+            Open to new projects and collaborations — if you’d like to talk
+            about work or just say hello, my inbox is open.
+          </p>
+        </Reveal>
 
-              <Link
-                href="https://github.com/NunezGabriel"
+        <Reveal delay={240}>
+          <a
+            href={socials.email}
+            className="mt-10 rounded-full bg-ink px-7 py-3 text-sm font-medium text-canvas transition-opacity duration-200 hover:opacity-85"
+          >
+            {profile.email}
+          </a>
+        </Reveal>
+
+        <Reveal delay={320}>
+          <div className="mt-12 flex flex-wrap justify-center gap-8">
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
                 target="_blank"
-                className="text-gray-300 hover:text-[#e63d2f] transition"
+                rel="noreferrer"
+                className="font-mono text-xs tracking-wide text-soft transition-colors duration-200 hover:text-ink"
               >
-                <span className="text-[#ff5500]">&gt;</span> GitHub →{" "}
-                <span className="text-[#e63d2f]">github.com/NunezGabriel</span>
-              </Link>
-
-              <Link
-                href="https://www.linkedin.com/in/gabriel-nu%C3%B1ez-arenas/"
-                target="_blank"
-                className="text-gray-300 hover:text-[#ffb300] transition"
-              >
-                <span className="text-[#ff5500]">&gt;</span> LinkedIn →{" "}
-                <span className="text-[#ffb300]">
-                  linkedin.com/in/gabriel-nuñez-arenas
-                </span>
-              </Link>
-            </div>
+                {link.label}
+              </a>
+            ))}
           </div>
-
-          <div className="flex items-center justify-center">
-            <GradientText
-              colors={["#ff5500", "#e63d2f", "#ffb300", "#e63d2f", "#ff5500"]}
-              animationSpeed={6}
-              showBorder={false}
-              className="text-[0.5rem] md:text-xs leading-tight whitespace-pre"
-            >
-              {`                                     
-              
-                                      ▓▓▓▓▓▓▓▄     
-                                    #▓▓▓▓▓▓▓▓▓    
-                      ¿╓╔###║###M╔  ▓▓▓▓▓▓▓▓▓▓    
-                    ╙║║║║║║║║║║║║║░ └▓▓▓▓▓▓▓▓┘    
-               ╔╠░    ║║║║║║║║║║║║║N, └╙╩╩╙└      
-             ╔╠╠╠╠╠,   ╚║║║║║║║║║║║║║║M╔╓╓╓#N,    
-           ╓╠╠╠╠╠╠╠╠∩   ╙╙      └╙╙║║║║║║║║║║║N   
-          #╠╠╠╠╠╠╠╠╠╚                ╙║║║║║║║║║║  
-         ╔╠╠╠╠╠╠╠╠╚                    ╙║║║║║║║║║ 
-  .╓╔╔╓,  ╙╠╠╠╠╠╠╚                      ╙║║║║║║║║Γ
-.║║║║║║║║,  ╠╠╠╠╠                        ║║║║║║║║║
-║║║║║║║║║║  ╠╠╠╠░                                 
-╚║║║║║║║║╠  ╠╠╠╠░                        ╓»»»»»»»»
- ╙╚║║║║╚╙  #╠╠╠╠╠∩                       ▓▓▓▓▓▓▓▓▒
-         ╔╠╠╠╠╠╠╠╠,                    \\▓▓▓▓▓▓▓▓▓ 
-         \`╠╠╠╠╠╠╠╠╠∩                  #▓▓▓▓▓▓▓▓▓Ñ 
-           ╠╠╠╠╠╠╠╠╠╠              ╓@▓▓▓▓▓▓▓▓▓▓╜  
-            ╙╠╠╠╠╠╠╚   ┌▓▓₧MmmM₧▓▓▓▓▓▓▓▓▓▓▓▓▓▓    
-              ╙╠╠╠∩   ╓▓▓▓▓▓▓▓▓▓▓▓▓▓▀░      └     
-                \`    #▓▓▓▓▓▓▓▓▓▓▓▓▓  ╓∩╠╠╠╠∩╔     
-                    "▀▓▓▓▓▓▓▓▓▓▓▓▓  #╠╠╠╠╠╠╠╠░    
-                          └└└└└└    ╠╠╠╠╠╠╠╠╠╠    
-                                     ╚╠╠╠╠╠╠╠     
-                                       └╙╙╙       
-
-           [Ubuntu 24.04 LTS]             
-        I use Linux too btw...`}
-            </GradientText>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
 }
-
-//             <GradientText
-//               colors={["#FFD700", "#FDB913", "#FFD700", "#FDB913", "#FFD700"]}
-//               animationSpeed={6}
-//               showBorder={false}
-//               className="text-[0.5rem] md:text-xs leading-tight whitespace-pre"
-//             >
-//               {`                .88888888:.
-//                88888888.88888.
-//              .8888888888888888.
-//              888888888888888888
-//              88' _\\\`88'_  \\\`888
-//              88 88 88 88  88888
-//              88_88_::_88_:88888
-//              88:::,::,:::::8888
-//              88\\\`:::::::::'\\\`888
-//             .88  \\\`::::'    8:88.
-//            8888            \\\`8:888.
-//          .8888'             \\\`888888.
-//         .8888:..  .::.  ...:'8888888:.
-//        .8888.'     :'     \\\`'::\\\`88:888
-//       .8888        '         \\\`.888:8888.
-//      888:8         .           888:88888
-//    .888:88        .:           888:88888:
-//    8888888.       ::           88:888888
-//    \\\`.::.888.      ::          .88888888
-//   .::::::.888.    ::         :::\\\`8888'.:.
-//  ::::::::::.888   '         .::::::::::::
-//  ::::::::::::.8    '      .:8::::::::::::.
-// .::::::::::::::.        .:888:::::::::::::
-// :::::::::::::::88:.__..:88888:::::::::::'
-//  \\\`'.:::::::::::88888888888.88:::::::::'
-//        \\\`':::_:' -- '' -'-' \\\`':_::::'
-
-//            [Linux Kernel 6.x]
-//         I use Arch btw...`}
-//             </GradientText>

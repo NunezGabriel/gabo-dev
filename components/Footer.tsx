@@ -1,43 +1,53 @@
-"use client";
+import WatchDial from "./WatchDial";
+import { profile, socials } from "@/lib/content";
+
+const footerLinks = [
+  { index: "01", label: "GitHub", href: socials.github },
+  { index: "02", label: "LinkedIn", href: socials.linkedin },
+  { index: "03", label: "Twitter", href: socials.x },
+  { index: "04", label: "Instagram", href: socials.instagram },
+];
 
 export default function Footer() {
   return (
-    <footer className="w-full  bg-[#0a0a0a]">
-      <div className="max-w-[1400px] mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div className="flex flex-col gap-1">
-          <p className="text-gray-300 text-lg md:text-xl">
-            Let&apos;s build something together.
+    <footer className="w-full border-t hairline">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-10 px-6 py-12 md:flex-row md:items-center">
+        <div className="flex flex-col gap-1.5">
+          <p className="text-base text-ink md:text-lg">
+            Let’s build something together.
           </p>
-
           <a
-            href="mailto:gabriel.nunez.arenas@gmail.com"
-            className="text-gray-400 hover:text-gray-200 transition"
+            href={socials.email}
+            className="text-sm text-soft transition-colors duration-200 hover:text-ink"
           >
-            gabriel.nunez.arenas@gmail.com
+            {profile.email}
           </a>
         </div>
 
-        <div className="flex flex-col gap-1">
-          <a href="" className="text-gray-400 hover:text-gray-200 transition">
-            1- Reading
-          </a>
-          <a
-            href="https://x.com/gabrielnunez_23"
-            className="text-gray-400 hover:text-gray-200 transition"
-          >
-            2- Twitter
-          </a>
-          <a
-            href="https://www.instagram.com/gabri3l_nun3z/"
-            className="text-gray-400 hover:text-gray-200 transition"
-          >
-            3- Instagram
-          </a>
+        <div className="flex flex-col gap-1.5">
+          {footerLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-soft transition-colors duration-200 hover:text-ink"
+            >
+              <span className="mr-2 font-mono text-[11px] text-faint">
+                {link.index}
+              </span>
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        <div className="text-gray-500 text-xs md:text-sm flex flex-col md:items-end gap-1">
-          <span>Portfolio v1.0.0</span>
-          <span>Last updated — January 2025</span>
+        <div className="flex flex-col gap-1.5 font-mono text-[11px] tracking-wide text-faint md:items-end">
+          <div className="mb-1 md:mb-2">
+            <WatchDial size={30} />
+          </div>
+          <span>Portfolio v2.0.0</span>
+          <span>Last updated — July 2026</span>
+          <span>{profile.location}</span>
         </div>
       </div>
     </footer>

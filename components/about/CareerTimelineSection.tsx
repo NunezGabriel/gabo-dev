@@ -1,187 +1,132 @@
-"use client";
+import Section from "@/components/Section";
+import Reveal from "@/components/Reveal";
+import {
+  experience,
+  education,
+  certifications,
+  languages,
+} from "@/lib/content";
 
-import Image from "next/image";
-import GradientText from "@/components/GradientText";
-
-interface TimelineItem {
-  id: number;
-  year: string;
-  title: string;
-  institution: string;
-  description: string;
-  logo: string;
-  type: "education" | "certification" | "work";
-}
-
-const timelineData: TimelineItem[] = [
-  {
-    id: 1,
-    year: "2027 - ...",
-    title: "Software Engineering Degree",
-    institution: "Peruvian University of Applied Sciences (UPC)",
-    description: "Coming Soon",
-    logo: "/upc.png",
-    type: "education",
-  },
-  {
-    id: 2,
-    year: "2024 - Present",
-    title: "Software design and development Degree",
-    institution: "Tecsup Technological Institute",
-    description: "technical bachelor in software development - Current",
-    logo: "/tecsup.png",
-    type: "education",
-  },
-  {
-    id: 3,
-    year: "2023 - 2023",
-    title: "Full Stack Web Programming Bootcamp",
-    institution: "{ Codeable }",
-    description: "Full stack web developer - Graduate",
-    logo: "/codeable.png",
-    type: "education",
-  },
-  {
-    id: 4,
-    year: "2021-2023",
-    title: "Computer Science Degree",
-    institution: "San Pablo Catholic University (UCSP)",
-    description: "Bachelor's degree in computer science - not completed.",
-    logo: "/sanpabloLogo.png",
-    type: "education",
-  },
-];
-
-const workData: TimelineItem[] = [
-  {
-    id: 5,
-    year: "2024 - 2024",
-    title: "Monasterio ERP (In Development)",
-    institution: "Freelance",
-    description:
-      "Institutional ERP developed with Tecsup for Monasterio Santa Maria, digitizing internal operations and organizational presence.",
-    logo: "/avatar.jpg",
-    type: "work",
-  },
-  {
-    id: 6,
-    year: "2023 - 2024",
-    title: "PoketVet",
-    institution: "Freelance",
-    description:
-      "Veterinary web app featuring patient management and a logistics module for equipment procurement.",
-    logo: "/avatar.jpg",
-    type: "work",
-  },
-  {
-    id: 7,
-    year: "2023 - 2023",
-    title: "Dellior",
-    institution: "Freelance",
-    description:
-      "E-commerce web app for a bakery, featuring a complete product catalog with pricing and detailed descriptions.",
-    logo: "/avatar.jpg",
-    type: "work",
-  },
-];
-
-const TimelineComponent = ({
-  items,
-  title,
-}: {
-  items: TimelineItem[];
-  title: string;
-}) => {
-  return (
-    <div className="flex-1">
-      <h3 className="text-2xl font-semibold text-gray-300 mb-8 text-center">
-        {title}
-      </h3>
-      <div className="relative">
-        <div className="absolute left-[31px] md:left-[39px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-gray-300 via-gray-300 to-gray-300" />
-
-        <div className="space-y-12">
-          {items.map((item) => (
-            <div key={item.id} className="relative flex gap-6 md:gap-8">
-              <div className="relative flex-shrink-0 z-10">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 shadow-lg border-gray-400 hover:border-gray-500 transition-all duration-300 overflow-hidden flex items-center justify-center">
-                  <Image
-                    src={item.logo}
-                    alt={item.institution}
-                    width={80}
-                    height={80}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-              </div>
-
-              <div className="flex-1 pb-8">
-                <div className="bg-[#0a0a0a] rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300 shadow-lg">
-                  <span className="inline-block px-3 py-1 text-xs font-mono bg-gray-800 text-gray-300 rounded-full mb-3">
-                    {item.year}
-                  </span>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-gray-200 mb-2">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm md:text-base text-gray-400 font-medium mb-3">
-                    {item.institution}
-                  </p>
-
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    {item.description}
-                  </p>
-
-                  <div className="mt-4">
-                    <span
-                      className={`inline-block px-3 py-1 text-xs rounded-full ${
-                        item.type === "education"
-                          ? "bg-blue-500/10 text-blue-400"
-                          : item.type === "certification"
-                            ? "bg-green-500/10 text-green-400"
-                            : "bg-purple-500/10 text-purple-400"
-                      }`}
-                    >
-                      {item.type === "education"
-                        ? "Education"
-                        : item.type === "certification"
-                          ? "Certification"
-                          : "Work Experience"}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+const Chip = ({ children }: { children: React.ReactNode }) => (
+  <span className="rounded-full border hairline px-3 py-1 font-mono text-[11px] text-soft">
+    {children}
+  </span>
+);
 
 const CareerTimeline = () => {
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 py-24">
-      <div className="mb-16 text-center">
-        <GradientText
-          colors={["#cdcfd2", "#6a7271", "#cdcfd2", "#6a7271", "#cdcfd2"]}
-          animationSpeed={5}
-          showBorder={false}
-          className="text-4xl md:text-6xl"
-        >
-          Career Path
-        </GradientText>
-        <p className="text-gray-400 mt-4 text-sm md:text-base">
-          My professional journey and educational background
-        </p>
-      </div>
+    <>
+      <Section kicker="02 — Career path" title="Experience.">
+        <div>
+          {experience.map((job) => (
+            <Reveal key={job.company}>
+              <article className="grid grid-cols-1 gap-3 border-t hairline py-10 md:grid-cols-[200px_1fr] md:gap-8">
+                <div className="font-mono text-xs leading-6 text-faint">
+                  <p>{job.period}</p>
+                  <p className="mt-1">{job.location}</p>
+                </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <TimelineComponent items={timelineData} title="Education & Learning" />
-        <TimelineComponent items={workData} title="Work Experience" />
-      </div>
-    </section>
+                <div>
+                  <h3 className="text-lg font-medium md:text-xl">
+                    {job.company}
+                    <span className="text-soft"> — {job.role}</span>
+                  </h3>
+                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-soft">
+                    {job.summary}
+                  </p>
+
+                  <ul className="mt-5 flex max-w-2xl flex-col gap-2.5">
+                    {job.highlights.map((highlight, i) => (
+                      <li
+                        key={i}
+                        className="flex gap-3 text-sm leading-relaxed text-soft"
+                      >
+                        <span className="text-faint">—</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {job.stack.map((tech) => (
+                      <Chip key={tech}>{tech}</Chip>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section kicker="03 — Education" title="Where I learned.">
+        <div className="grid grid-cols-1 gap-x-16 md:grid-cols-2">
+          <div>
+            {education.map((entry) => (
+              <Reveal key={entry.institution}>
+                <div className="border-t hairline py-6">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="text-base font-medium">
+                      {entry.institution}
+                    </h3>
+                    <span className="font-mono text-xs text-faint">
+                      {entry.period}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-soft">
+                    {entry.program}
+                  </p>
+                  <p className="mt-1 font-mono text-[11px] text-faint">
+                    {entry.location}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div>
+            <Reveal>
+              <div className="border-t hairline py-6">
+                <h3 className="text-base font-medium">Certifications</h3>
+                <ul className="mt-3 flex flex-col gap-2.5">
+                  {certifications.map((cert) => (
+                    <li
+                      key={cert.name}
+                      className="flex gap-3 text-sm leading-relaxed text-soft"
+                    >
+                      <span className="text-faint">—</span>
+                      <span>
+                        {cert.name}
+                        <span className="text-faint"> · {cert.issuer}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal delay={80}>
+              <div className="border-t hairline py-6">
+                <h3 className="text-base font-medium">Languages</h3>
+                <ul className="mt-3 flex flex-col gap-2.5">
+                  {languages.map((language) => (
+                    <li
+                      key={language.name}
+                      className="flex items-baseline justify-between gap-4 text-sm text-soft"
+                    >
+                      <span>{language.name}</span>
+                      <span className="font-mono text-[11px] text-faint">
+                        {language.level}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+    </>
   );
 };
 

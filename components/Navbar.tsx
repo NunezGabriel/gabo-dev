@@ -1,116 +1,147 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { IoIosArrowRoundForward } from "react-icons/io";
-import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
-import GradientText from "./GradientText";
+import WatchDial from "./WatchDial";
+import ThemeToggle from "./ThemeToggle";
+import { socials } from "@/lib/content";
+
+const links = [
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const lastScrollY = useRef(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY < lastScrollY) {
-        // Scrolling up
+      if (currentScrollY < lastScrollY.current || currentScrollY < 80) {
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down
+      } else if (currentScrollY > lastScrollY.current) {
         setIsVisible(false);
       }
-
-      setLastScrollY(currentScrollY);
+      lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  // close the mobile menu on navigation and lock scroll while open
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = "";
     };
-  }, [lastScrollY]);
+  }, [isOpen]);
 
   return (
     <>
-      <div
-        className={`fixed top-0 left-0 right-0 z-50 border-b-[1px] border-gray-500 w-full px-10 py-7 rounded-b-3xl flex items-center justify-between bg-[#000]/70 backdrop-blur-md transition-transform duration-300 ${
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 border-b hairline bg-canvas/75 backdrop-blur-xl transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <Link href={"/"} className="logo-wrapper">
-          <span className="logo-sizer">GabrielNA:&lt;</span>
-          <span className="logo-text primary text-gray-300">GabrielNA❖</span>
-          <span className="logo-text secondary text-gray-300">
-            GaboDev&lt;/&gt;
-          </span>
-        </Link>
-
-        {/* Desktop Menu */}
-        <section className="hidden md:flex items-center gap-4">
+        <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
           <Link
-            href={"/work"}
-            className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton "
+            href="/"
+            className="flex items-center gap-3"
+            aria-label="Gabriel Nuñez — home"
           >
-            <h1 className="text-gray-300">Work</h1>
-            <IoIosArrowRoundForward className="arrow" size={30} />
+            <WatchDial />
+            <span className="logo-wrapper hidden sm:block">
+              <span className="logo-sizer">Gabriel Nuñez</span>
+              <span className="logo-text primary text-ink">Gabriel Nuñez</span>
+              <span className="logo-text secondary text-soft">
+                gabo.dev — AQP
+              </span>
+            </span>
           </Link>
-          <Link
-            href={"/about"}
-            className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton"
-          >
-            <h1 className="text-gray-300">About</h1>
-            <IoIosArrowRoundForward className="arrow" size={30} />
-          </Link>
-        </section>
 
-        {/* Hamburger Button */}
-        <button onClick={toggleMenu} className="md:hidden text-white z-50">
-          {isOpen ? <IoClose size={32} /> : <HiMenuAlt3 size={32} />}
-        </button>
-      </div>
+          {/* Desktop */}
+          <div className="hidden items-center gap-8 md:flex">
+            {links.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm transition-colors duration-200 ${
+                    active ? "text-ink" : "text-soft hover:text-ink"
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`mt-0.5 block h-px bg-ink transition-transform duration-300 ${
+                      active ? "scale-x-100" : "scale-x-0"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
+            <ThemeToggle />
+          </div>
 
-      {/* Mobile Menu */}
+          {/* Mobile */}
+          <div className="flex items-center gap-3 md:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              className="text-ink"
+            >
+              {isOpen ? <IoClose size={26} /> : <HiMenuAlt3 size={26} />}
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile overlay */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-[#1a1a1a] border-l border-gray-500 transform transition-transform duration-300 ease-in-out z-40 md:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 z-40 flex flex-col justify-between bg-canvas px-8 pt-32 pb-12 transition-opacity duration-300 md:hidden ${
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        <div className="flex flex-col gap-6 pt-24 px-6">
-          <Link
-            href={"/work"}
-            onClick={toggleMenu}
-            className="py-3 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2"
-          >
-            <h1>Work</h1>
-            <IoIosArrowRoundForward className="arrow" size={30} />
+        <nav className="flex flex-col gap-8">
+          <Link href="/" className="text-4xl font-semibold tracking-tight">
+            Home
           </Link>
-          <Link
-            href={"/about"}
-            onClick={toggleMenu}
-            className="py-3 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2"
-          >
-            <h1>About</h1>
-            <IoIosArrowRoundForward className="arrow" size={30} />
-          </Link>
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-4xl font-semibold tracking-tight"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex flex-col gap-2">
+          <p className="kicker">Elsewhere</p>
+          <div className="flex gap-6 text-sm text-soft">
+            <a href={socials.github} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            <a href={socials.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <a href={socials.email}>Email</a>
+          </div>
         </div>
       </div>
-
-      {/* Overlay */}
-      {isOpen && (
-        <div
-          onClick={toggleMenu}
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
-        />
-      )}
     </>
   );
 };
