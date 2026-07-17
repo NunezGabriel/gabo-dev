@@ -16,7 +16,7 @@ const Chip = ({ children }: { children: React.ReactNode }) => (
 const CareerTimeline = () => {
   return (
     <>
-      <Section kicker="02 — Career path" title="Experience.">
+      <Section id="career" kicker="02 — Career path" title="Experience.">
         <div>
           {experience.map((job) => (
             <Reveal key={job.company}>
@@ -59,7 +59,7 @@ const CareerTimeline = () => {
         </div>
       </Section>
 
-      <Section kicker="03 — Education" title="Where I learned.">
+      <Section id="education" kicker="03 — Education" title="Where I learned.">
         <div className="grid grid-cols-1 gap-x-16 md:grid-cols-2">
           <div>
             {education.map((entry) => (

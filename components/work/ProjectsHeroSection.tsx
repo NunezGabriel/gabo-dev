@@ -5,7 +5,7 @@ export default function ProjectsHeroSection() {
     <section className="relative overflow-hidden">
       <div className="glow" />
 
-      <div className="relative mx-auto w-full max-w-5xl px-6 pt-16 pb-10 md:pt-28 md:pb-16">
+      <div className="relative mx-auto w-full max-w-5xl px-6 pt-16 pb-10 md:pt-56 md:pb-16">
         <Reveal>
           <p className="kicker">Work — Index</p>
         </Reveal>

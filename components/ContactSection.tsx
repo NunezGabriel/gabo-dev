@@ -10,7 +10,7 @@ const contactLinks = [
 
 export default function ContactSection() {
   return (
-    <section className="relative overflow-hidden border-t hairline">
+    <section id="contact" className="relative overflow-hidden border-t hairline">
       <div className="glow" />
 
       <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center px-6 py-28 text-center md:py-36">
@@ -34,7 +34,7 @@ export default function ContactSection() {
         <Reveal delay={240}>
           <a
             href={socials.email}
-            className="mt-10 rounded-full bg-ink px-7 py-3 text-sm font-medium text-canvas transition-opacity duration-200 hover:opacity-85"
+            className="mt-10 inline-block rounded-full bg-ink px-7 py-3 text-sm font-medium text-canvas transition-opacity duration-200 hover:opacity-85"
           >
             {profile.email}
           </a>

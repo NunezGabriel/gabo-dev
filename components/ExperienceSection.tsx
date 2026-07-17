@@ -6,7 +6,7 @@ import { experience } from "@/lib/content";
 
 export default function ExperienceSection() {
   return (
-    <Section kicker="03 — Experience" title="Where I’ve worked.">
+    <Section id="experience" kicker="03 — Experience" title="Where I’ve worked.">
       <div>
         {experience.slice(0, 3).map((job, i) => (
           <Reveal key={job.company} delay={i * 60}>

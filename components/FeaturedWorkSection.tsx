@@ -14,7 +14,11 @@ export default function FeaturedWorkSection() {
   const [featured, ...rest] = projects.slice(0, 3);
 
   return (
-    <Section kicker="02 — Selected work" title="Things I’ve built recently.">
+    <Section
+      id="selected-work"
+      kicker="02 — Selected work"
+      title="Things I’ve built recently."
+    >
       <Reveal>
         <article className="overflow-hidden rounded-3xl border hairline bg-panel/60">
           {featured.video && (

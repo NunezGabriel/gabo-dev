@@ -9,7 +9,7 @@ export default function PresentationSection() {
     <section className="relative overflow-hidden">
       <div className="glow" />
 
-      <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-20 pb-24 text-center md:pt-32 md:pb-32">
+      <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-20 pb-24 text-center md:pt-60 md:pb-32">
         <Reveal>
           <Image
             src="/profilePcitureBgBNocuadro.png"

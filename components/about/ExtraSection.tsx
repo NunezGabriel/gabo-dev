@@ -24,7 +24,7 @@ const items = [
 
 const ExtraSection = () => {
   return (
-    <Section kicker="04 — Beyond the code" title="Off the clock.">
+    <Section id="beyond" kicker="04 — Beyond the code" title="Off the clock.">
       <div className="grid grid-cols-1 gap-x-12 md:grid-cols-3">
         {items.map((item, i) => (
           <Reveal key={item.index} delay={i * 80}>

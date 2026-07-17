@@ -17,7 +17,7 @@ export default function AboutSection() {
     <section className="relative overflow-hidden">
       <div className="glow" />
 
-      <div className="relative mx-auto w-full max-w-5xl px-6 pt-16 pb-20 md:pt-24 md:pb-28">
+      <div className="relative mx-auto w-full max-w-5xl px-6 pt-16 pb-20 md:pt-52 md:pb-28">
         <Reveal>
           <p className="kicker">01 — About</p>
         </Reveal>

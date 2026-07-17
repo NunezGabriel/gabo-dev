@@ -185,29 +185,23 @@ body {
   overflow: hidden;
 }
 
-/* ── Swiss watch dial ─────────────────────────────── */
+/* ── Arc nav backdrop — progressive blur, no hard edge */
 
-.watch-face {
-  fill: var(--canvas);
-  stroke: var(--line);
-  transition: fill 0.4s ease;
+.arc-nav-bg {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--canvas) 92%, transparent) 0%,
+    color-mix(in srgb, var(--canvas) 55%, transparent) 55%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent);
+  mask-image: linear-gradient(to bottom, black 55%, transparent);
 }
 
-.watch-tick {
-  fill: var(--ink);
-}
+/* ── Anchored sections clear the fixed nav ────────── */
 
-.watch-hand {
-  stroke: var(--ink);
-  stroke-linecap: round;
-}
-
-.watch-second {
-  stroke: var(--accent);
-  fill: var(--accent);
-}
-
-.watch-progress {
-  stroke: var(--ink);
-  opacity: 0.25;
+[id] {
+  scroll-margin-top: 6.5rem;
 }

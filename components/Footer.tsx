@@ -1,4 +1,4 @@
-import WatchDial from "./WatchDial";
+import LogoMark from "./LogoMark";
 import { profile, socials } from "@/lib/content";
 
 const footerLinks = [
@@ -42,8 +42,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-1.5 font-mono text-[11px] tracking-wide text-faint md:items-end">
-          <div className="mb-1 md:mb-2">
-            <WatchDial size={30} />
+          <div className="mb-1 text-ink md:mb-2">
+            <LogoMark size={26} />
           </div>
           <span>Portfolio v2.0.0</span>
           <span>Last updated — July 2026</span>

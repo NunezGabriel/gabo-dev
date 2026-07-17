@@ -91,7 +91,11 @@ const SkillsSection = () => {
         </div>
       </Reveal>
 
-      <Section kicker="01 — What I do" title="From interface to infrastructure.">
+      <Section
+        id="what-i-do"
+        kicker="01 — What I do"
+        title="From interface to infrastructure."
+      >
         <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2">
           {services.map((service, i) => (
             <Reveal key={service.index} delay={(i % 2) * 80}>

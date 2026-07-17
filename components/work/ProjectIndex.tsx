@@ -42,7 +42,11 @@ export default function ProjectIndex() {
 
   return (
     <>
-      <Section kicker="01 — Personal & community" className="pt-10 md:pt-14">
+      <Section
+        id="personal"
+        kicker="01 — Personal & community"
+        className="pt-10 md:pt-14"
+      >
         <div>
           {personal.map((project, i) => (
             <ProjectRow key={project.name} project={project} index={i + 1} />
@@ -50,7 +54,11 @@ export default function ProjectIndex() {
         </div>
       </Section>
 
-      <Section kicker="02 — Client & team work" className="pt-0 md:pt-0">
+      <Section
+        id="client-work"
+        kicker="02 — Client & team work"
+        className="pt-0 md:pt-0"
+      >
         <div>
           {client.map((project, i) => (
             <ProjectRow
