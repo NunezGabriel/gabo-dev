@@ -139,7 +139,7 @@ const en: Dictionary = {
     subs: {
       "/": [
         { id: "what-i-do", label: "What I do" },
-        { id: "selected-work", label: "Selected work" },
+        { id: "selected-work", label: "My Craft" },
         { id: "experience", label: "Experience" },
         { id: "contact", label: "Contact" },
       ],
@@ -168,30 +168,42 @@ const en: Dictionary = {
         index: "01",
         title: "Frontend Engineering",
         description:
-          "Accessible, high-performance interfaces with React, Next.js, TypeScript and Tailwind — built to scale and stay maintainable.",
+          "Component-driven UIs with strong typing, server-side rendering and code splitting — performance (Core Web Vitals), accessibility and responsive layouts as defaults. React, Next.js, TypeScript, Tailwind.",
       },
       {
         index: "02",
         title: "Backend & APIs",
         description:
-          "REST and GraphQL services with Node, Express, NestJS, Django and Laravel over PostgreSQL — secure, validated and well-structured.",
+          "REST and GraphQL API design with authentication (JWT, role-based access), data validation and relational modeling over PostgreSQL. Node.js with Express/NestJS, Spring Boot with Java, Django and Laravel.",
       },
       {
         index: "03",
-        title: "Cloud & DevOps",
+        title: "Software Architecture",
         description:
-          "Docker containerization, CI/CD pipelines and Linux — shipping to VPS and PaaS environments with production reliability in mind.",
+          "Layered architectures — repositories, services, controllers — MVC/MVT patterns and microservices, designed for scalability, separation of concerns and long-term maintainability.",
       },
       {
         index: "04",
-        title: "AI & Automation",
+        title: "Cloud & DevOps",
         description:
-          "ERP-integrated WhatsApp bots and agentic development workflows — automating real business processes end to end.",
+          "Docker containerization, CI/CD pipelines and Linux server administration — environment and secrets management, reproducible deployments to VPS and PaaS environments with high availability in mind.",
+      },
+      {
+        index: "05",
+        title: "AI & Agentic Development",
+        description:
+          "Agentic workflows with Claude Code — skills, subagents and automated pipelines — RAG, prompt engineering and LLM tool-calling integrations applied to real business processes.",
+      },
+      {
+        index: "06",
+        title: "Agile Delivery",
+        description:
+          "Iterative development under Scrum and Kanban — Git/GitHub team flow, code reviews and clear estimation, shipping in short, predictable cycles.",
       },
     ],
   },
   featured: {
-    kicker: "02 — Selected work",
+    kicker: "02 — My Craft",
     title: "Things I’ve built recently.",
     viewAll: "View all projects",
   },
@@ -488,25 +500,37 @@ const es: Dictionary = {
         index: "01",
         title: "Ingeniería Frontend",
         description:
-          "Interfaces accesibles y de alto rendimiento con React, Next.js, TypeScript y Tailwind — construidas para escalar y mantenerse en el tiempo.",
+          "UIs orientadas a componentes con tipado estricto, renderizado en el servidor y code splitting — rendimiento (Core Web Vitals), accesibilidad y diseño responsive por defecto. React, Next.js, TypeScript, Tailwind.",
       },
       {
         index: "02",
         title: "Backend y APIs",
         description:
-          "Servicios REST y GraphQL con Node, Express, NestJS, Django y Laravel sobre PostgreSQL — seguros, validados y bien estructurados.",
+          "Diseño de APIs REST y GraphQL con autenticación (JWT, control de acceso por roles), validación de datos y modelado relacional sobre PostgreSQL. Node.js con Express/NestJS, Spring Boot con Java, Django y Laravel.",
       },
       {
         index: "03",
-        title: "Cloud y DevOps",
+        title: "Arquitectura de Software",
         description:
-          "Contenedores Docker, pipelines de CI/CD y Linux — desplegando en entornos VPS y PaaS con fiabilidad de producción en mente.",
+          "Arquitecturas por capas — repositorios, servicios, controladores — patrones MVC/MVT y microservicios, diseñadas para escalabilidad, separación de responsabilidades y mantenibilidad a largo plazo.",
       },
       {
         index: "04",
-        title: "IA y Automatización",
+        title: "Cloud y DevOps",
         description:
-          "Bots de WhatsApp integrados con ERPs y flujos de desarrollo agéntico — automatizando procesos de negocio reales de punta a punta.",
+          "Contenedores Docker, pipelines de CI/CD y administración de servidores Linux — manejo de entornos y secretos, despliegues reproducibles en VPS y PaaS pensados para alta disponibilidad.",
+      },
+      {
+        index: "05",
+        title: "IA y Desarrollo Agéntico",
+        description:
+          "Flujos agénticos con Claude Code — skills, subagentes y pipelines automatizados — RAG, prompt engineering e integraciones LLM con tool calling aplicadas a procesos de negocio reales.",
+      },
+      {
+        index: "06",
+        title: "Entrega Ágil",
+        description:
+          "Desarrollo iterativo bajo Scrum y Kanban — flujo de equipo con Git/GitHub, code reviews y estimación clara, entregando en ciclos cortos y predecibles.",
       },
     ],
   },
