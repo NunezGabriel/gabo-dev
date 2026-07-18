@@ -8,18 +8,21 @@ import { IoClose } from "react-icons/io5";
 import ArcNav from "./ArcNav";
 import LogoMark from "./LogoMark";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "./LanguageProvider";
 import { socials } from "@/lib/content";
-
-const links = [
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
+  const { dict } = useLanguage();
+
+  const links = [
+    { href: "/work", label: dict.nav.work },
+    { href: "/about", label: dict.nav.about },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,16 +70,17 @@ const Navbar = () => {
           >
             <LogoMark size={30} />
             <span className="text-[0.95rem] font-medium text-ink">
-              Gabriel Nuñez
+              {dict.profile.shortName}
             </span>
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
-              className="text-ink"
+              className="ml-1 text-ink"
             >
               {isOpen ? <IoClose size={26} /> : <HiMenuAlt3 size={26} />}
             </button>
@@ -92,7 +96,7 @@ const Navbar = () => {
       >
         <nav className="flex flex-col gap-8">
           <Link href="/" className="text-4xl font-semibold tracking-tight">
-            Home
+            {dict.nav.home}
           </Link>
           {links.map((link) => (
             <Link
@@ -106,7 +110,7 @@ const Navbar = () => {
         </nav>
 
         <div className="flex flex-col gap-2">
-          <p className="kicker">Elsewhere</p>
+          <p className="kicker">{dict.nav.elsewhere}</p>
           <div className="flex gap-6 text-sm text-soft">
             <a href={socials.github} target="_blank" rel="noreferrer">
               GitHub

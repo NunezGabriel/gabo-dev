@@ -1,6 +1,9 @@
+"use client";
+
 import LogoLoop from "@/components/LoopLogo";
 import Section from "./Section";
 import Reveal from "./Reveal";
+import { useLanguage } from "./LanguageProvider";
 import {
   SiReact,
   SiNextdotjs,
@@ -41,40 +44,15 @@ const techLogos = [
   { node: <SiShopify />, title: "Shopify", href: "https://www.shopify.com" },
 ];
 
-const services = [
-  {
-    index: "01",
-    title: "Frontend Engineering",
-    description:
-      "Accessible, high-performance interfaces with React, Next.js, TypeScript and Tailwind — built to scale and stay maintainable.",
-  },
-  {
-    index: "02",
-    title: "Backend & APIs",
-    description:
-      "REST and GraphQL services with Node, Express, NestJS, Django and Laravel over PostgreSQL — secure, validated and well-structured.",
-  },
-  {
-    index: "03",
-    title: "Cloud & DevOps",
-    description:
-      "Docker containerization, CI/CD pipelines and Linux — shipping to VPS and PaaS environments with production reliability in mind.",
-  },
-  {
-    index: "04",
-    title: "AI & Automation",
-    description:
-      "ERP-integrated WhatsApp bots and agentic development workflows — automating real business processes end to end.",
-  },
-];
-
 const SkillsSection = () => {
+  const { dict } = useLanguage();
+
   return (
     <div>
       {/* Tech strip — full bleed, between hairlines */}
       <Reveal>
         <div className="border-y hairline py-12">
-          <p className="kicker mb-10 text-center">The stack I work with</p>
+          <p className="kicker mb-10 text-center">{dict.strip.kicker}</p>
           <div style={{ color: "var(--soft)" }}>
             <LogoLoop
               logos={techLogos}
@@ -93,11 +71,11 @@ const SkillsSection = () => {
 
       <Section
         id="what-i-do"
-        kicker="01 — What I do"
-        title="From interface to infrastructure."
+        kicker={dict.services.kicker}
+        title={dict.services.title}
       >
         <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2">
-          {services.map((service, i) => (
+          {dict.services.items.map((service, i) => (
             <Reveal key={service.index} delay={(i % 2) * 80}>
               <div className="border-t hairline py-8">
                 <span className="font-mono text-xs text-faint">

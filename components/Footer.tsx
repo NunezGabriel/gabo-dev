@@ -1,5 +1,8 @@
+"use client";
+
 import LogoMark from "./LogoMark";
-import { profile, socials } from "@/lib/content";
+import { useLanguage } from "./LanguageProvider";
+import { socials } from "@/lib/content";
 
 const footerLinks = [
   { index: "01", label: "GitHub", href: socials.github },
@@ -9,18 +12,18 @@ const footerLinks = [
 ];
 
 export default function Footer() {
+  const { dict } = useLanguage();
+
   return (
     <footer className="w-full border-t hairline">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-10 px-6 py-12 md:flex-row md:items-center">
         <div className="flex flex-col gap-1.5">
-          <p className="text-base text-ink md:text-lg">
-            Let’s build something together.
-          </p>
+          <p className="text-base text-ink md:text-lg">{dict.footer.message}</p>
           <a
             href={socials.email}
             className="text-sm text-soft transition-colors duration-200 hover:text-ink"
           >
-            {profile.email}
+            {dict.profile.email}
           </a>
         </div>
 
@@ -43,11 +46,11 @@ export default function Footer() {
 
         <div className="flex flex-col gap-1.5 font-mono text-[11px] tracking-wide text-faint md:items-end">
           <div className="mb-1 text-ink md:mb-2">
-            <LogoMark size={26} />
+            <LogoMark size={28} />
           </div>
-          <span>Portfolio v2.0.0</span>
-          <span>Last updated — July 2026</span>
-          <span>{profile.location}</span>
+          <span>{dict.footer.version}</span>
+          <span>{dict.footer.updated}</span>
+          <span>{dict.profile.location}</span>
         </div>
       </div>
     </footer>

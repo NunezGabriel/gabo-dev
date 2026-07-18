@@ -146,6 +146,8 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
+  text-align: center;
   transition: transform 0.35s ease;
   white-space: nowrap;
   will-change: transform;
@@ -188,20 +190,20 @@ body {
 /* ── Arc nav backdrop — progressive blur, no hard edge */
 
 .arc-nav-bg {
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   background: linear-gradient(
     to bottom,
-    color-mix(in srgb, var(--canvas) 92%, transparent) 0%,
-    color-mix(in srgb, var(--canvas) 55%, transparent) 55%,
+    color-mix(in srgb, var(--canvas) 98%, transparent) 0%,
+    color-mix(in srgb, var(--canvas) 90%, transparent) 70%,
     transparent 100%
   );
-  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent);
-  mask-image: linear-gradient(to bottom, black 55%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent);
+  mask-image: linear-gradient(to bottom, black 80%, transparent);
 }
 
 /* ── Anchored sections clear the fixed nav ────────── */
 
 [id] {
-  scroll-margin-top: 6.5rem;
+  scroll-margin-top: 9rem;
 }

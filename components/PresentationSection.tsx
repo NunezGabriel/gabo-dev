@@ -1,10 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Reveal from "./Reveal";
-import { profile } from "@/lib/content";
+import { useLanguage } from "./LanguageProvider";
+import { socials } from "@/lib/content";
 
 export default function PresentationSection() {
+  const { dict } = useLanguage();
+  const { profile, hero } = dict;
+
   return (
     <section className="relative overflow-hidden">
       <div className="glow" />
@@ -13,7 +19,7 @@ export default function PresentationSection() {
         <Reveal>
           <Image
             src="/profilePcitureBgBNocuadro.png"
-            alt="Gabriel Nuñez"
+            alt={profile.name}
             width={72}
             height={72}
             priority
@@ -22,9 +28,7 @@ export default function PresentationSection() {
         </Reveal>
 
         <Reveal delay={80}>
-          <p className="kicker mt-8">
-            {profile.role} · {profile.location}
-          </p>
+          <p className="kicker mt-8">· {profile.role} ·</p>
         </Reveal>
 
         <Reveal delay={140}>
@@ -45,21 +49,21 @@ export default function PresentationSection() {
               href="/work"
               className="navButton flex items-center gap-1 rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-canvas transition-opacity duration-200 hover:opacity-85"
             >
-              View work
+              {hero.viewWork}
               <IoIosArrowRoundForward className="arrow" size={22} />
             </Link>
             <a
-              href="mailto:gabriel.nunez.arenas@gmail.com"
+              href={socials.email}
               className="rounded-full border hairline px-6 py-2.5 text-sm font-medium text-ink transition-colors duration-200 hover:bg-panel"
             >
-              Get in touch
+              {hero.getInTouch}
             </a>
           </div>
         </Reveal>
 
         <Reveal delay={380}>
           <p className="mt-12 font-mono text-xs tracking-wide text-faint">
-            Currently — {profile.currently} · {profile.community}
+            {hero.currentlyLabel} — {profile.currently} · {profile.community}
           </p>
         </Reveal>
       </div>

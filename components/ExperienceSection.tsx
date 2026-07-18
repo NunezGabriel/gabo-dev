@@ -1,14 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Section from "./Section";
 import Reveal from "./Reveal";
-import { experience } from "@/lib/content";
+import { useLanguage } from "./LanguageProvider";
 
 export default function ExperienceSection() {
+  const { dict } = useLanguage();
+
   return (
-    <Section id="experience" kicker="03 — Experience" title="Where I’ve worked.">
+    <Section
+      id="experience"
+      kicker={dict.experienceSection.kicker}
+      title={dict.experienceSection.title}
+    >
       <div>
-        {experience.slice(0, 3).map((job, i) => (
+        {dict.experience.slice(0, 3).map((job, i) => (
           <Reveal key={job.company} delay={i * 60}>
             <div className="grid grid-cols-1 gap-2 border-t hairline py-8 md:grid-cols-[200px_1fr] md:gap-8">
               <span className="font-mono text-xs leading-6 text-faint">
@@ -34,7 +42,7 @@ export default function ExperienceSection() {
             href="/about"
             className="navButton inline-flex items-center gap-1 text-sm text-soft transition-colors duration-200 hover:text-ink"
           >
-            Full career path
+            {dict.experienceSection.fullPath}
             <IoIosArrowRoundForward className="arrow" size={22} />
           </Link>
         </div>

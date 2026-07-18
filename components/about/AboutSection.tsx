@@ -1,25 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { profile, languages } from "@/lib/content";
-
-const facts = [
-  { label: "Location", value: profile.location },
-  { label: "Currently", value: profile.currently },
-  { label: "Community", value: profile.community },
-  {
-    label: "Languages",
-    value: languages.map((l) => `${l.name} · ${l.level}`).join("  /  "),
-  },
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function AboutSection() {
+  const { dict } = useLanguage();
+  const { profile, aboutPage } = dict;
+
+  const facts = [
+    { label: aboutPage.factLabels.location, value: profile.location },
+    { label: aboutPage.factLabels.currently, value: profile.currently },
+    { label: aboutPage.factLabels.community, value: profile.community },
+    {
+      label: aboutPage.factLabels.languages,
+      value: dict.languages
+        .map((language) => `${language.name} · ${language.level}`)
+        .join("  /  "),
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden">
       <div className="glow" />
 
       <div className="relative mx-auto w-full max-w-5xl px-6 pt-16 pb-20 md:pt-52 md:pb-28">
         <Reveal>
-          <p className="kicker">01 — About</p>
+          <p className="kicker">{aboutPage.kicker}</p>
         </Reveal>
 
         <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
@@ -28,7 +35,7 @@ export default function AboutSection() {
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border hairline bg-panel">
                 <Image
                   src="/profilePcitureBgBNocuadro.png"
-                  alt="Gabriel Nuñez Arenas"
+                  alt={profile.name}
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 40vw"
@@ -36,7 +43,7 @@ export default function AboutSection() {
                 />
               </div>
               <figcaption className="mt-3 font-mono text-[11px] tracking-wide text-faint">
-                Arequipa, Perú — {new Date().getFullYear()}
+                {profile.location} — {new Date().getFullYear()}
               </figcaption>
             </figure>
           </Reveal>
@@ -44,7 +51,7 @@ export default function AboutSection() {
           <div className="flex flex-col justify-center">
             <Reveal delay={140}>
               <h1 className="display-fade text-4xl font-semibold tracking-tight md:text-5xl">
-                About me.
+                {aboutPage.title}
               </h1>
             </Reveal>
 

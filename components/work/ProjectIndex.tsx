@@ -1,6 +1,9 @@
+"use client";
+
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
-import { projects, type Project } from "@/lib/content";
+import { useLanguage } from "@/components/LanguageProvider";
+import { type Project } from "@/lib/content";
 
 const Chip = ({ children }: { children: React.ReactNode }) => (
   <span className="rounded-full border hairline px-3 py-1 font-mono text-[11px] text-soft">
@@ -37,14 +40,15 @@ const ProjectRow = ({ project, index }: { project: Project; index: number }) => 
 );
 
 export default function ProjectIndex() {
-  const personal = projects.filter((p) => p.kind !== "Client");
-  const client = projects.filter((p) => p.kind === "Client");
+  const { dict } = useLanguage();
+  const personal = dict.projects.filter((p) => p.group === "personal");
+  const client = dict.projects.filter((p) => p.group === "client");
 
   return (
     <>
       <Section
         id="personal"
-        kicker="01 — Personal & community"
+        kicker={dict.workPage.personalKicker}
         className="pt-10 md:pt-14"
       >
         <div>
@@ -56,7 +60,7 @@ export default function ProjectIndex() {
 
       <Section
         id="client-work"
-        kicker="02 — Client & team work"
+        kicker={dict.workPage.clientKicker}
         className="pt-0 md:pt-0"
       >
         <div>

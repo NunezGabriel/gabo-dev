@@ -1,11 +1,8 @@
+"use client";
+
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
-import {
-  experience,
-  education,
-  certifications,
-  languages,
-} from "@/lib/content";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const Chip = ({ children }: { children: React.ReactNode }) => (
   <span className="rounded-full border hairline px-3 py-1 font-mono text-[11px] text-soft">
@@ -14,11 +11,18 @@ const Chip = ({ children }: { children: React.ReactNode }) => (
 );
 
 const CareerTimeline = () => {
+  const { dict } = useLanguage();
+  const { aboutPage } = dict;
+
   return (
     <>
-      <Section id="career" kicker="02 — Career path" title="Experience.">
+      <Section
+        id="career"
+        kicker={aboutPage.careerKicker}
+        title={aboutPage.careerTitle}
+      >
         <div>
-          {experience.map((job) => (
+          {dict.experience.map((job) => (
             <Reveal key={job.company}>
               <article className="grid grid-cols-1 gap-3 border-t hairline py-10 md:grid-cols-[200px_1fr] md:gap-8">
                 <div className="font-mono text-xs leading-6 text-faint">
@@ -59,10 +63,14 @@ const CareerTimeline = () => {
         </div>
       </Section>
 
-      <Section id="education" kicker="03 — Education" title="Where I learned.">
+      <Section
+        id="education"
+        kicker={aboutPage.eduKicker}
+        title={aboutPage.eduTitle}
+      >
         <div className="grid grid-cols-1 gap-x-16 md:grid-cols-2">
           <div>
-            {education.map((entry) => (
+            {dict.education.map((entry) => (
               <Reveal key={entry.institution}>
                 <div className="border-t hairline py-6">
                   <div className="flex items-baseline justify-between gap-4">
@@ -87,9 +95,11 @@ const CareerTimeline = () => {
           <div>
             <Reveal>
               <div className="border-t hairline py-6">
-                <h3 className="text-base font-medium">Certifications</h3>
+                <h3 className="text-base font-medium">
+                  {aboutPage.certificationsTitle}
+                </h3>
                 <ul className="mt-3 flex flex-col gap-2.5">
-                  {certifications.map((cert) => (
+                  {dict.certifications.map((cert) => (
                     <li
                       key={cert.name}
                       className="flex gap-3 text-sm leading-relaxed text-soft"
@@ -107,9 +117,11 @@ const CareerTimeline = () => {
 
             <Reveal delay={80}>
               <div className="border-t hairline py-6">
-                <h3 className="text-base font-medium">Languages</h3>
+                <h3 className="text-base font-medium">
+                  {aboutPage.languagesTitle}
+                </h3>
                 <ul className="mt-3 flex flex-col gap-2.5">
-                  {languages.map((language) => (
+                  {dict.languages.map((language) => (
                     <li
                       key={language.name}
                       className="flex items-baseline justify-between gap-4 text-sm text-soft"

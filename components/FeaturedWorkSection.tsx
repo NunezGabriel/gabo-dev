@@ -1,8 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Section from "./Section";
 import Reveal from "./Reveal";
-import { projects } from "@/lib/content";
+import { useLanguage } from "./LanguageProvider";
 
 const Chip = ({ children }: { children: React.ReactNode }) => (
   <span className="rounded-full border hairline px-3 py-1 font-mono text-[11px] text-soft">
@@ -11,13 +13,14 @@ const Chip = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function FeaturedWorkSection() {
-  const [featured, ...rest] = projects.slice(0, 3);
+  const { dict } = useLanguage();
+  const [featured, ...rest] = dict.projects.slice(0, 3);
 
   return (
     <Section
       id="selected-work"
-      kicker="02 — Selected work"
-      title="Things I’ve built recently."
+      kicker={dict.featured.kicker}
+      title={dict.featured.title}
     >
       <Reveal>
         <article className="overflow-hidden rounded-3xl border hairline bg-panel/60">
@@ -83,7 +86,7 @@ export default function FeaturedWorkSection() {
             href="/work"
             className="navButton flex items-center gap-1 rounded-full border hairline px-6 py-2.5 text-sm font-medium text-ink transition-colors duration-200 hover:bg-panel"
           >
-            View all projects
+            {dict.featured.viewAll}
             <IoIosArrowRoundForward className="arrow" size={22} />
           </Link>
         </div>
