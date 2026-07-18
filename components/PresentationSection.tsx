@@ -3,53 +3,69 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import GradientText from "./GradientText";
-import ProfileCard from "../components/ProfileCard";
+import Reveal from "./Reveal";
+import { useLanguage } from "./LanguageProvider";
+import { socials } from "@/lib/content";
 
 export default function PresentationSection() {
+  const { dict } = useLanguage();
+  const { profile, hero } = dict;
+
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 py-24">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-        <div className="flex justify-center items-center">
-          <ProfileCard
-            name="Gabriel Nunez"
-            title="Software Engineer"
-            handle="javicodes"
-            status="Online"
-            avatarUrl="profilePcitureBgBNocuadro.png"
-            iconUrl="/code-pattern.svg"
-            showUserInfo={false}
-            enableTilt={true}
-            enableMobileTilt={false}
+    <section className="relative overflow-hidden">
+      <div className="glow" />
+
+      <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-20 pb-24 text-center md:pt-60 md:pb-32">
+        <Reveal>
+          <Image
+            src="/profilePcitureBgBNocuadro.png"
+            alt={profile.name}
+            width={72}
+            height={72}
+            priority
+            className="mx-auto h-[72px] w-[72px] rounded-full border hairline object-cover"
           />
-        </div>
+        </Reveal>
 
-        <div className="flex flex-col justify-center gap-8 ">
-          <GradientText
-            colors={["#cdcfd2", "#6a7271", "#cdcfd2", "#6a7271", "#cdcfd2"]}
-            animationSpeed={5}
-            showBorder={false}
-            className="text-6xl leading-tight"
-          >
-            Gabriel Nunez Arenas
-          </GradientText>
-          <h2 className="text-gray-500 text-xl max-w-md leading-relaxed">
-            Software Engineer, crafting thoughtful solutions through code.
-          </h2>
+        <Reveal delay={80}>
+          <p className="kicker mt-8">· {profile.role} ·</p>
+        </Reveal>
 
-          <div className="mt-4">
+        <Reveal delay={140}>
+          <h1 className="display-fade mt-5 text-5xl font-semibold tracking-tight text-balance md:text-7xl">
+            {profile.name}
+          </h1>
+        </Reveal>
+
+        <Reveal delay={220}>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-soft md:text-lg">
+            {profile.summary}
+          </p>
+        </Reveal>
+
+        <Reveal delay={300}>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href={"/"}
-              className="py-2 px-6 rounded-3xl duration-200 ease-in-out hover:bg-[#343434] flex items-center gap-2 navButton max-w-fit "
+              href="/work"
+              className="navButton flex items-center gap-1 rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-canvas transition-opacity duration-200 hover:opacity-85"
             >
-              <h1 className="text-gray-300 text-xl tracking-wide uppercase">
-                More
-              </h1>
-
-              <IoIosArrowRoundForward className="arrow" size={30} />
+              {hero.viewWork}
+              <IoIosArrowRoundForward className="arrow" size={22} />
             </Link>
+            <a
+              href={socials.email}
+              className="rounded-full border hairline px-6 py-2.5 text-sm font-medium text-ink transition-colors duration-200 hover:bg-panel"
+            >
+              {hero.getInTouch}
+            </a>
           </div>
-        </div>
+        </Reveal>
+
+        <Reveal delay={380}>
+          <p className="mt-12 font-mono text-xs tracking-wide text-faint">
+            {hero.currentlyLabel} — {profile.currently} · {profile.community}
+          </p>
+        </Reveal>
       </div>
     </section>
   );

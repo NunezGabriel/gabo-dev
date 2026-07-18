@@ -1,25 +1,29 @@
 "use client";
 
-import GradientText from "@/components/GradientText";
+import Reveal from "@/components/Reveal";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function ProjectsHeroSection() {
-  return (
-    <section className="w-full max-w-6xl mx-auto px-6 py-16 md:py-32">
-      <div className="flex flex-col gap-6">
-        <GradientText
-          colors={["#cdcfd2", "#6a7271", "#cdcfd2", "#6a7271", "#cdcfd2"]}
-          animationSpeed={5}
-          showBorder={false}
-          className="text-4xl md:text-6xl leading-tight"
-        >
-          My Work
-        </GradientText>
+  const { dict } = useLanguage();
 
-        <p className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed">
-          Explore the projects I've built and contributed to. Each one
-          represents a unique challenge and creative solution in software
-          development.
-        </p>
+  return (
+    <section className="relative overflow-hidden">
+      <div className="glow" />
+
+      <div className="relative mx-auto w-full max-w-5xl px-6 pt-16 pb-10 md:pt-56 md:pb-16">
+        <Reveal>
+          <p className="kicker">{dict.workPage.kicker}</p>
+        </Reveal>
+        <Reveal delay={80}>
+          <h1 className="display-fade mt-5 text-4xl font-semibold tracking-tight md:text-6xl">
+            {dict.workPage.title}
+          </h1>
+        </Reveal>
+        <Reveal delay={160}>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-soft md:text-lg">
+            {dict.workPage.intro}
+          </p>
+        </Reveal>
       </div>
     </section>
   );

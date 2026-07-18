@@ -1,40 +1,129 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Theme tokens ─────────────────────────────────── */
+
+:root {
+  --canvas: #fafafa;
+  --panel: #f1f1f3;
+  --ink: #1d1d1f;
+  --soft: #6e6e73;
+  --faint: #a1a1a6;
+  --line: rgba(0, 0, 0, 0.09);
+  --accent: #e2342c; /* swiss railway red — watch second hand */
+  --glow-a: rgba(0, 0, 0, 0.05);
+  --glow-b: rgba(0, 0, 0, 0.02);
+}
+
+.dark {
+  --canvas: #0a0a0b;
+  --panel: #151517;
+  --ink: #f5f5f7;
+  --soft: #98989d;
+  --faint: #636366;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #ff453a;
+  --glow-a: rgba(255, 255, 255, 0.07);
+  --glow-b: rgba(255, 255, 255, 0.02);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-soft: var(--soft);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* ── Base ─────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #1e1e1e;
-  color: white;
-  font-family: "JetBrains Mono", monospace;
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
 }
 
-.navButton {
+::selection {
+  background: var(--ink);
+  color: var(--canvas);
 }
 
-.arrow {
-  transition: 0.3s;
-  transform: rotate(-40deg);
+/* Section kicker — mono, spaced, quiet */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--soft);
 }
 
-.navButton:hover .arrow {
-  transform: rotate(0deg);
+/* Display name — static black→gray vertical fade */
+.display-fade {
+  background: linear-gradient(180deg, var(--ink) 55%, var(--soft) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.name {
-  display: block;
+/* Hairline rule */
+.hairline {
+  border-color: var(--line);
 }
 
-.nameHidden {
-  display: none;
+/* ── Soft blurred backdrop (difuminado) ───────────── */
+
+.glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(42rem 26rem at 50% -8%, var(--glow-a), transparent 68%),
+    radial-gradient(30rem 22rem at 82% 22%, var(--glow-b), transparent 70%);
+  transition: background 0.4s ease;
 }
 
-.name:hover .nameHidden {
-  display: block;
-}
-.nameHidden:hover .name {
-  display: none;
+/* ── Scroll reveal ────────────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ===================================*/
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ── Logo hover swap (GabrielNA ↔ gabo.dev) ───────── */
+
 .logo-sizer {
   visibility: hidden;
   white-space: nowrap;
@@ -43,19 +132,22 @@ body {
 
 .logo-wrapper {
   position: relative;
-  height: 32px;
+  height: 24px;
   overflow: hidden;
   cursor: pointer;
   width: max-content;
-  line-height: 32px;
-  letter-spacing: 0.5px;
-  font-size: x-large;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .logo-text {
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
+  text-align: center;
   transition: transform 0.35s ease;
   white-space: nowrap;
   will-change: transform;
@@ -77,4 +169,41 @@ body {
   transform: translateY(0%);
 }
 
-/* ===================================*/
+/* ── Arrow nudge on links/buttons ─────────────────── */
+
+.navButton .arrow {
+  transition: transform 0.3s ease;
+  transform: rotate(-40deg);
+}
+
+.navButton:hover .arrow {
+  transform: rotate(0deg);
+}
+
+/* ── LogoLoop fade matches active theme ───────────── */
+
+.logoloop {
+  --logoloop-fadeColor: var(--canvas);
+  overflow: hidden;
+}
+
+/* ── Arc nav backdrop — progressive blur, no hard edge */
+
+.arc-nav-bg {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--canvas) 98%, transparent) 0%,
+    color-mix(in srgb, var(--canvas) 90%, transparent) 70%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent);
+  mask-image: linear-gradient(to bottom, black 80%, transparent);
+}
+
+/* ── Anchored sections clear the fixed nav ────────── */
+
+[id] {
+  scroll-margin-top: 9rem;
+}

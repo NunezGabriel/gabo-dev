@@ -1,11 +1,11 @@
 import ProjectsHeroSection from "@/components/work/ProjectsHeroSection";
-import ProjectGrid from "@/components/work/ProjectGrid";
+import ProjectIndex from "@/components/work/ProjectIndex";
 
 const WorkView = () => {
   return (
     <div>
       <ProjectsHeroSection />
-      <ProjectGrid />
+      <ProjectIndex />
     </div>
   );
 };
