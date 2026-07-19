@@ -139,7 +139,7 @@ const en: Dictionary = {
     subs: {
       "/": [
         { id: "what-i-do", label: "What I do" },
-        { id: "selected-work", label: "My Craft" },
+        { id: "selected-work", label: "Selected work" },
         { id: "experience", label: "Experience" },
         { id: "contact", label: "Contact" },
       ],
@@ -203,7 +203,7 @@ const en: Dictionary = {
     ],
   },
   featured: {
-    kicker: "02 — My Craft",
+    kicker: "02 — Selected work",
     title: "Things I’ve built recently.",
     viewAll: "View all projects",
   },
@@ -367,6 +367,8 @@ const en: Dictionary = {
       description:
         "Application for searching and listing real estate sales, with a clean browsing experience over a REST API.",
       stack: ["Next.js", "Laravel", "REST API", "Tailwind CSS"],
+      // TODO: replace with the real Keynest demo video
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "BingoBTP",
@@ -375,6 +377,8 @@ const en: Dictionary = {
       description:
         "Networking web application for the GDG “Breaking The Pattern” event, deployed on Vercel and Render.",
       stack: ["Next.js", "Express", "Prisma", "PostgreSQL", "Tailwind CSS"],
+      // TODO: replace with the real BingoBTP demo video
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "WhatsApp AI Bots",
@@ -471,7 +475,7 @@ const es: Dictionary = {
     subs: {
       "/": [
         { id: "what-i-do", label: "Qué hago" },
-        { id: "selected-work", label: "Trabajo reciente" },
+        { id: "selected-work", label: "Trabajo seleccionado" },
         { id: "experience", label: "Experiencia" },
         { id: "contact", label: "Contacto" },
       ],
@@ -699,6 +703,8 @@ const es: Dictionary = {
       description:
         "Aplicación para buscar y publicar ventas de inmuebles, con una experiencia de navegación limpia sobre una API REST.",
       stack: ["Next.js", "Laravel", "REST API", "Tailwind CSS"],
+      // TODO: reemplazar con el video real de Keynest
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "BingoBTP",
@@ -707,6 +713,8 @@ const es: Dictionary = {
       description:
         "Aplicación web de networking para el evento “Breaking The Pattern” del GDG, desplegada en Vercel y Render.",
       stack: ["Next.js", "Express", "Prisma", "PostgreSQL", "Tailwind CSS"],
+      // TODO: reemplazar con el video real de BingoBTP
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "WhatsApp AI Bots",
