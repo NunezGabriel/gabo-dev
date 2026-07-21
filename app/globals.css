@@ -202,6 +202,43 @@ body {
   mask-image: linear-gradient(to bottom, black 80%, transparent);
 }
 
+/* ── Custom cursor: light ring + ninja-slash trail ── */
+/* Both use mix-blend-mode: difference against white, so they read as
+   dark-on-light and light-on-dark automatically — no theme tracking. */
+
+.custom-cursor-active,
+.custom-cursor-active a,
+.custom-cursor-active button {
+  cursor: none;
+}
+
+.cc-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  transition:
+    width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    margin 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s ease,
+    border-color 0.4s ease;
+}
+
+.cc-ring.cc-hover {
+  width: 44px;
+  height: 44px;
+  margin-left: -22px;
+  margin-top: -22px;
+  background: color-mix(in srgb, var(--ink) 15%, transparent);
+}
+
 /* ── Anchored sections clear the fixed nav ────────── */
 
 [id] {

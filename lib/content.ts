@@ -144,8 +144,8 @@ const en: Dictionary = {
         { id: "contact", label: "Contact" },
       ],
       "/work": [
-        { id: "personal", label: "Personal" },
         { id: "client-work", label: "Client work" },
+        { id: "personal", label: "Personal" },
       ],
       "/about": [
         { id: "career", label: "Career" },
@@ -228,8 +228,8 @@ const en: Dictionary = {
     title: "Projects & client work.",
     intro:
       "A selection of what I’ve built and contributed to — from personal products and community tools to production systems shipped for clients.",
-    personalKicker: "01 — Personal & community",
-    clientKicker: "02 — Client & team work",
+    clientKicker: "01 — Client & team work",
+    personalKicker: "02 — Personal & community",
   },
   aboutPage: {
     kicker: "01 — About",
@@ -387,6 +387,8 @@ const en: Dictionary = {
       description:
         "Production WhatsApp bots integrated with clients’ ERPs, automating the full appointment scheduling lifecycle and customer service workflows.",
       stack: ["NestJS", "Next.js", "Docker", "VPS"],
+      // TODO: replace with the real demo video
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "OHS Management System",
@@ -395,6 +397,8 @@ const en: Dictionary = {
       description:
         "Occupational Health & Safety platform — training, assessments with automatic validation, compliance tracking and safety documentation.",
       stack: ["Node.js", "Express", "Prisma", "PostgreSQL", "Next.js"],
+      // TODO: replace with the real demo video
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "Monasterio ERP",
@@ -403,6 +407,8 @@ const en: Dictionary = {
       description:
         "Institutional ERP digitizing internal operations and organizational presence, built collaboratively with Tecsup.",
       stack: ["TypeScript", "React", "Figma"],
+      // TODO: replace with the real demo video
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "PoketVet",
@@ -411,6 +417,8 @@ const en: Dictionary = {
       description:
         "Patient management platform with a logistics module for equipment purchasing.",
       stack: ["Vue.js", "Express"],
+      // TODO: replace with the real demo video
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "Dellior",
@@ -419,6 +427,8 @@ const en: Dictionary = {
       description:
         "E-commerce with a complete product catalog, prices and details — built to establish the bakery’s online presence.",
       stack: ["React", "Tailwind CSS"],
+      // TODO: replace with the real demo video
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
   ],
   education: [
@@ -480,8 +490,8 @@ const es: Dictionary = {
         { id: "contact", label: "Contacto" },
       ],
       "/work": [
-        { id: "personal", label: "Personal" },
         { id: "client-work", label: "Clientes" },
+        { id: "personal", label: "Personal" },
       ],
       "/about": [
         { id: "career", label: "Trayectoria" },
@@ -564,8 +574,8 @@ const es: Dictionary = {
     title: "Proyectos y trabajo con clientes.",
     intro:
       "Una selección de lo que he construido y en lo que he contribuido — desde productos personales y herramientas para la comunidad hasta sistemas en producción para clientes.",
-    personalKicker: "01 — Personal y comunidad",
-    clientKicker: "02 — Clientes y equipos",
+    clientKicker: "01 — Clientes y equipos",
+    personalKicker: "02 — Personal y comunidad",
   },
   aboutPage: {
     kicker: "01 — Sobre mí",
@@ -723,6 +733,8 @@ const es: Dictionary = {
       description:
         "Bots de WhatsApp en producción integrados con los ERPs de los clientes, automatizando todo el ciclo de agendamiento de citas y los flujos de atención al cliente.",
       stack: ["NestJS", "Next.js", "Docker", "VPS"],
+      // TODO: reemplazar con el video real
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "Sistema de Gestión SST",
@@ -731,6 +743,8 @@ const es: Dictionary = {
       description:
         "Plataforma de Seguridad y Salud en el Trabajo — capacitaciones, evaluaciones con validación automática, seguimiento de cumplimiento y documentación de seguridad.",
       stack: ["Node.js", "Express", "Prisma", "PostgreSQL", "Next.js"],
+      // TODO: reemplazar con el video real
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "Monasterio ERP",
@@ -739,6 +753,8 @@ const es: Dictionary = {
       description:
         "ERP institucional que digitaliza operaciones internas y presencia organizacional, construido en colaboración con Tecsup.",
       stack: ["TypeScript", "React", "Figma"],
+      // TODO: reemplazar con el video real
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "PoketVet",
@@ -747,6 +763,8 @@ const es: Dictionary = {
       description:
         "Plataforma de gestión de pacientes con un módulo logístico para compra de equipos.",
       stack: ["Vue.js", "Express"],
+      // TODO: reemplazar con el video real
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
     {
       name: "Dellior",
@@ -755,6 +773,8 @@ const es: Dictionary = {
       description:
         "E-commerce con catálogo completo de productos, precios y detalles — creado para establecer la presencia online de la panadería.",
       stack: ["React", "Tailwind CSS"],
+      // TODO: reemplazar con el video real
+      video: "/MetalOps/VideoMetalOps.mp4",
     },
   ],
   education: [
