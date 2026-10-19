@@ -4,27 +4,9 @@ import Reveal from "@/components/Reveal";
 import { useLanguage } from "@/components/LanguageProvider";
 
 export default function ProjectsHeroSection() {
-  const { dict } = useLanguage();
-
-  return (
-    <section className="relative overflow-hidden">
-      <div className="glow" />
-
-      <div className="relative mx-auto w-full max-w-5xl px-6 pt-16 pb-10 md:pt-56 md:pb-16">
-        <Reveal>
-          <p className="kicker">{dict.workPage.kicker}</p>
-        </Reveal>
-        <Reveal delay={80}>
-          <h1 className="display-fade mt-5 text-4xl font-semibold tracking-tight md:text-6xl">
-            {dict.workPage.title}
-          </h1>
-        </Reveal>
-        <Reveal delay={160}>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-soft md:text-lg">
-            {dict.workPage.intro}
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
+  const { dict, lang } = useLanguage();
+  return <section className="mx-auto w-full max-w-5xl px-6 pt-16 pb-10 md:pt-52 md:pb-14">
+    <Reveal><p className="kicker">{lang === "es" ? "Proyectos" : "Projects"}</p><h1 className="mt-5 max-w-3xl text-5xl md:text-7xl">{lang === "es" ? "Mi archivo de proyectos." : "My project archive."}</h1><p className="mt-6 max-w-2xl text-lg leading-relaxed text-soft">{dict.workPage.intro}</p></Reveal>
+    <p className="archive-count"><span>{String(dict.projects.length).padStart(2,"0")}</span>{lang === "es" ? "proyectos · clientes, ideas y comunidad" : "projects · clients, ideas & community"}</p>
+  </section>;
 }

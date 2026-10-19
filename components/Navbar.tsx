@@ -46,8 +46,13 @@ const Navbar = () => {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
     };
   }, [isOpen]);
 
@@ -80,6 +85,8 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
               className="ml-1 text-ink"
             >
               {isOpen ? <IoClose size={26} /> : <HiMenuAlt3 size={26} />}
@@ -90,6 +97,9 @@ const Navbar = () => {
 
       {/* Mobile overlay */}
       <div
+        id="mobile-navigation"
+        inert={!isOpen}
+        aria-hidden={!isOpen}
         className={`fixed inset-0 z-40 flex flex-col justify-between bg-canvas px-8 pt-32 pb-12 transition-opacity duration-300 md:hidden ${
           isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}

@@ -28,6 +28,7 @@ export interface Project {
   description: string;
   stack: string[];
   video?: string;
+  image?: string;
   href?: string;
 }
 
@@ -64,6 +65,7 @@ export interface Dictionary {
   };
   strip: { kicker: string };
   services: {
+    intro: string;
     kicker: string;
     title: string;
     items: { index: string; title: string; description: string }[];
@@ -82,6 +84,13 @@ export interface Dictionary {
   aboutPage: {
     kicker: string;
     title: string;
+    communityBadge: {
+      roleLabel: string;
+      role: string;
+      chapter: string;
+      organization: string;
+      description: string;
+    };
     factLabels: {
       location: string;
       currently: string;
@@ -118,17 +127,15 @@ const en: Dictionary = {
   profile: {
     name: "Gabriel Nuñez Arenas",
     shortName: "Gabriel Nuñez",
-    role: "Software Developer",
+    role: "Backend Developer",
     location: "Arequipa, Perú",
     email: "gabriel.nunez.arenas@gmail.com",
-    summary:
-      "I build and ship web systems end to end — from clean, high-performance interfaces to cloud deployments with Docker and CI/CD.",
+    summary: "Backend developer with a growing interest in data. I like understanding how things work, solving problems with others, and sharing what I learn.",
     bio: [
-      "Software Developer passionate about building and deploying web systems, with hands-on experience in web development and cloud deployments. I work primarily within the JavaScript and Python ecosystems, developing web applications and managing their delivery through Docker, CI/CD pipelines, and cloud platforms (VPS and PaaS environments).",
-      "I am a self-taught professional with a strong sense of responsibility, capable of taking ownership of the entire lifecycle from development to production. Currently, I am strengthening my skills in Cloud Infrastructure and DevOps practices while continuing to deliver reliable web solutions.",
-      "I am also an active member and organizer of the Google Developer Group (GDG) Arequipa, where I help organize events and foster the growth of the local tech community.",
+      "I’m Gabriel, a backend developer from Arequipa, Perú. I work mainly with Java and Spring Boot, and also build with Django, Express and Ruby. My full-stack experience also helps me understand how those services are used in a real application.",
+      "Backend development is my main focus today. Alongside that work, I’m learning Data Engineering: exploring and cleaning data with Python and pandas, using Jupyter and Conda. It’s a transition I’m building on top of my experience with SQL and APIs.",
     ],
-    currently: "AI & Full Stack Developer @ AM Digital",
+    currently: "Backend development · learning Data Engineering",
     community: "Organizer @ GDG Arequipa",
   },
   nav: {
@@ -161,46 +168,41 @@ const en: Dictionary = {
   },
   strip: { kicker: "The stack I work with" },
   services: {
-    kicker: "01 — What I do",
-    title: "From interface to infrastructure.",
-    items: [
+    "kicker": "Skills",
+    "title": "My development stack.",
+    "intro": "Backend is my main focus. These are the tools and approaches I work with across an application.",
+    "items": [
       {
-        index: "01",
-        title: "Frontend Engineering",
-        description:
-          "Component-driven UIs with strong typing, server-side rendering and code splitting — performance (Core Web Vitals), accessibility and responsive layouts as defaults. React, Next.js, TypeScript, Tailwind.",
+        "index": "01",
+        "title": "Backend",
+        "description": "Spring Boot is my main framework. I also build APIs, business logic and integrations with Django, Express and Ruby."
       },
       {
-        index: "02",
-        title: "Backend & APIs",
-        description:
-          "REST and GraphQL API design with authentication (JWT, role-based access), data validation and relational modeling over PostgreSQL. Node.js with Express/NestJS, Spring Boot with Java, Django and Laravel.",
+        "index": "02",
+        "title": "Frontend",
+        "description": "Interfaces with React, Next.js and Angular, connected to the services behind them."
       },
       {
-        index: "03",
-        title: "Software Architecture",
-        description:
-          "Layered architectures — repositories, services, controllers — MVC/MVT patterns and microservices, designed for scalability, separation of concerns and long-term maintainability.",
+        "index": "03",
+        "title": "Architecture & design",
+        "description": "Separating responsibilities, structuring business logic and keeping persistence behind clear boundaries."
       },
       {
-        index: "04",
-        title: "Cloud & DevOps",
-        description:
-          "Docker containerization, CI/CD pipelines and Linux server administration — environment and secrets management, reproducible deployments to VPS and PaaS environments with high availability in mind.",
+        "index": "04",
+        "title": "Databases",
+        "description": "Relational modeling, SQL queries, document databases and caching."
       },
       {
-        index: "05",
-        title: "AI & Agentic Development",
-        description:
-          "Agentic workflows with Claude Code — skills, subagents and automated pipelines — RAG, prompt engineering and LLM tool-calling integrations applied to real business processes.",
+        "index": "05",
+        "title": "Development & deployment",
+        "description": "From local environments and version control to containers, Linux servers and cloud platforms."
       },
       {
-        index: "06",
-        title: "Agile Delivery",
-        description:
-          "Iterative development under Scrum and Kanban — Git/GitHub team flow, code reviews and clear estimation, shipping in short, predictable cycles.",
-      },
-    ],
+        "index": "06",
+        "title": "Moving into Data Engineering",
+        "description": "Building on my backend experience with Python, pandas, Jupyter and Conda."
+      }
+    ]
   },
   featured: {
     kicker: "02 — Selected work",
@@ -216,12 +218,12 @@ const en: Dictionary = {
     kicker: "04 — Contact",
     title: "Let’s build something together.",
     blurb:
-      "Open to new projects and collaborations — if you’d like to talk about work or just say hello, my inbox is open.",
+      "Have a project in mind, a backend to build or a problem to solve? Tell me a little about it.",
   },
   footer: {
     message: "Let’s build something together.",
-    version: "Portfolio v2.0.0",
-    updated: "Last updated — July 2026",
+    version: "Portfolio v3.0.0",
+    updated: "Last updated — October 2026",
   },
   workPage: {
     kicker: "Work — Index",
@@ -234,6 +236,13 @@ const en: Dictionary = {
   aboutPage: {
     kicker: "01 — About",
     title: "About me.",
+    communityBadge: {
+      roleLabel: "Role",
+      role: "Organizer",
+      chapter: "GDG Arequipa",
+      organization: "Google Developer Groups",
+      description: "I organize events for Arequipa’s developer community.",
+    },
     factLabels: {
       location: "Location",
       currently: "Currently",
@@ -367,8 +376,7 @@ const en: Dictionary = {
       description:
         "Application for searching and listing real estate sales, with a clean browsing experience over a REST API.",
       stack: ["Next.js", "Laravel", "REST API", "Tailwind CSS"],
-      // TODO: replace with the real Keynest demo video
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "BingoBTP",
@@ -377,8 +385,7 @@ const en: Dictionary = {
       description:
         "Networking web application for the GDG “Breaking The Pattern” event, deployed on Vercel and Render.",
       stack: ["Next.js", "Express", "Prisma", "PostgreSQL", "Tailwind CSS"],
-      // TODO: replace with the real BingoBTP demo video
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "WhatsApp AI Bots",
@@ -387,8 +394,7 @@ const en: Dictionary = {
       description:
         "Production WhatsApp bots integrated with clients’ ERPs, automating the full appointment scheduling lifecycle and customer service workflows.",
       stack: ["NestJS", "Next.js", "Docker", "VPS"],
-      // TODO: replace with the real demo video
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "OHS Management System",
@@ -397,8 +403,7 @@ const en: Dictionary = {
       description:
         "Occupational Health & Safety platform — training, assessments with automatic validation, compliance tracking and safety documentation.",
       stack: ["Node.js", "Express", "Prisma", "PostgreSQL", "Next.js"],
-      // TODO: replace with the real demo video
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "Monasterio ERP",
@@ -407,8 +412,7 @@ const en: Dictionary = {
       description:
         "Institutional ERP digitizing internal operations and organizational presence, built collaboratively with Tecsup.",
       stack: ["TypeScript", "React", "Figma"],
-      // TODO: replace with the real demo video
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "PoketVet",
@@ -417,8 +421,7 @@ const en: Dictionary = {
       description:
         "Patient management platform with a logistics module for equipment purchasing.",
       stack: ["Vue.js", "Express"],
-      // TODO: replace with the real demo video
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "Dellior",
@@ -427,8 +430,7 @@ const en: Dictionary = {
       description:
         "E-commerce with a complete product catalog, prices and details — built to establish the bakery’s online presence.",
       stack: ["React", "Tailwind CSS"],
-      // TODO: replace with the real demo video
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
   ],
   education: [
@@ -464,17 +466,15 @@ const es: Dictionary = {
   profile: {
     name: "Gabriel Nuñez Arenas",
     shortName: "Gabriel Nuñez",
-    role: "Desarrollador de Software",
+    role: "Desarrollador Backend",
     location: "Arequipa, Perú",
     email: "gabriel.nunez.arenas@gmail.com",
-    summary:
-      "Construyo y despliego sistemas web de punta a punta — desde interfaces limpias y de alto rendimiento hasta despliegues en la nube con Docker y CI/CD.",
+    summary: "Desarrollador backend con un interés creciente por los datos. Me gusta entender cómo funcionan las cosas, resolver problemas en equipo y compartir lo que aprendo.",
     bio: [
-      "Desarrollador de Software apasionado por construir y desplegar sistemas web, con experiencia práctica en desarrollo web y despliegues en la nube. Trabajo principalmente en los ecosistemas de JavaScript y Python, desarrollando aplicaciones web y gestionando su entrega mediante Docker, pipelines de CI/CD y plataformas cloud (entornos VPS y PaaS).",
-      "Soy un profesional autodidacta con un fuerte sentido de la responsabilidad, capaz de hacerme cargo de todo el ciclo de vida, del desarrollo a producción. Actualmente estoy fortaleciendo mis habilidades en infraestructura cloud y prácticas DevOps mientras sigo entregando soluciones web confiables.",
-      "También soy miembro activo y organizador del Google Developer Group (GDG) Arequipa, donde ayudo a organizar eventos y a impulsar el crecimiento de la comunidad tech local.",
+      "Soy Gabriel, desarrollador backend de Arequipa, Perú. Trabajo principalmente con Java y Spring Boot, y también desarrollo con Django, Express y Ruby. Mi experiencia full stack me ayuda a entender cómo se usan esos servicios en una aplicación real.",
+      "Hoy mi foco principal es el backend. En paralelo estoy aprendiendo Data Engineering: exploro y limpio datos con Python y pandas, usando Jupyter y Conda. Es una transición que estoy construyendo a partir de mi experiencia con SQL y APIs.",
     ],
-    currently: "Desarrollador AI & Full Stack @ AM Digital",
+    currently: "Desarrollo backend · aprendiendo Data Engineering",
     community: "Organizador @ GDG Arequipa",
   },
   nav: {
@@ -507,46 +507,41 @@ const es: Dictionary = {
   },
   strip: { kicker: "El stack con el que trabajo" },
   services: {
-    kicker: "01 — Qué hago",
-    title: "De la interfaz a la infraestructura.",
-    items: [
+    "kicker": "Habilidades",
+    "title": "Mi stack de desarrollo.",
+    "intro": "Mi foco es el backend. Estas son las herramientas y enfoques con los que trabajo a lo largo de una aplicación.",
+    "items": [
       {
-        index: "01",
-        title: "Ingeniería Frontend",
-        description:
-          "UIs orientadas a componentes con tipado estricto, renderizado en el servidor y code splitting — rendimiento (Core Web Vitals), accesibilidad y diseño responsive por defecto. React, Next.js, TypeScript, Tailwind.",
+        "index": "01",
+        "title": "Backend",
+        "description": "Spring Boot es mi framework principal. También construyo APIs, lógica de negocio e integraciones con Django, Express y Ruby."
       },
       {
-        index: "02",
-        title: "Backend y APIs",
-        description:
-          "Diseño de APIs REST y GraphQL con autenticación (JWT, control de acceso por roles), validación de datos y modelado relacional sobre PostgreSQL. Node.js con Express/NestJS, Spring Boot con Java, Django y Laravel.",
+        "index": "02",
+        "title": "Frontend",
+        "description": "Interfaces con React, Next.js y Angular, conectadas a los servicios que las hacen funcionar."
       },
       {
-        index: "03",
-        title: "Arquitectura de Software",
-        description:
-          "Arquitecturas por capas — repositorios, servicios, controladores — patrones MVC/MVT y microservicios, diseñadas para escalabilidad, separación de responsabilidades y mantenibilidad a largo plazo.",
+        "index": "03",
+        "title": "Arquitectura y diseño",
+        "description": "Separar responsabilidades, organizar la lógica de negocio y mantener la persistencia detrás de límites claros."
       },
       {
-        index: "04",
-        title: "Cloud y DevOps",
-        description:
-          "Contenedores Docker, pipelines de CI/CD y administración de servidores Linux — manejo de entornos y secretos, despliegues reproducibles en VPS y PaaS pensados para alta disponibilidad.",
+        "index": "04",
+        "title": "Bases de datos",
+        "description": "Modelado relacional, consultas SQL, bases de datos de documentos y caché."
       },
       {
-        index: "05",
-        title: "IA y Desarrollo Agéntico",
-        description:
-          "Flujos agénticos con Claude Code — skills, subagentes y pipelines automatizados — RAG, prompt engineering e integraciones LLM con tool calling aplicadas a procesos de negocio reales.",
+        "index": "05",
+        "title": "Desarrollo y despliegue",
+        "description": "Desde entornos locales y control de versiones hasta contenedores, servidores Linux y plataformas cloud."
       },
       {
-        index: "06",
-        title: "Entrega Ágil",
-        description:
-          "Desarrollo iterativo bajo Scrum y Kanban — flujo de equipo con Git/GitHub, code reviews y estimación clara, entregando en ciclos cortos y predecibles.",
-      },
-    ],
+        "index": "06",
+        "title": "En camino a Data Engineering",
+        "description": "Ampliando mi experiencia en backend con Python, pandas, Jupyter y Conda."
+      }
+    ]
   },
   featured: {
     kicker: "02 — Trabajo seleccionado",
@@ -562,12 +557,12 @@ const es: Dictionary = {
     kicker: "04 — Contacto",
     title: "Construyamos algo juntos.",
     blurb:
-      "Abierto a nuevos proyectos y colaboraciones — si quieres hablar de trabajo o solo saludar, mi bandeja está abierta.",
+      "¿Tienes un proyecto en mente, un backend por construir o un problema por resolver? Cuéntame un poco.",
   },
   footer: {
     message: "Construyamos algo juntos.",
-    version: "Portfolio v2.0.0",
-    updated: "Última actualización — Julio 2026",
+    version: "Portfolio v3.0.0",
+    updated: "Última actualización — Octubre 2026",
   },
   workPage: {
     kicker: "Proyectos — Índice",
@@ -580,6 +575,13 @@ const es: Dictionary = {
   aboutPage: {
     kicker: "01 — Sobre mí",
     title: "Sobre mí.",
+    communityBadge: {
+      roleLabel: "Rol",
+      role: "Organizador",
+      chapter: "GDG Arequipa",
+      organization: "Google Developer Groups",
+      description: "Organizo eventos para la comunidad de desarrolladores de Arequipa.",
+    },
     factLabels: {
       location: "Ubicación",
       currently: "Actualmente",
@@ -713,8 +715,7 @@ const es: Dictionary = {
       description:
         "Aplicación para buscar y publicar ventas de inmuebles, con una experiencia de navegación limpia sobre una API REST.",
       stack: ["Next.js", "Laravel", "REST API", "Tailwind CSS"],
-      // TODO: reemplazar con el video real de Keynest
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "BingoBTP",
@@ -723,8 +724,7 @@ const es: Dictionary = {
       description:
         "Aplicación web de networking para el evento “Breaking The Pattern” del GDG, desplegada en Vercel y Render.",
       stack: ["Next.js", "Express", "Prisma", "PostgreSQL", "Tailwind CSS"],
-      // TODO: reemplazar con el video real de BingoBTP
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "WhatsApp AI Bots",
@@ -733,8 +733,7 @@ const es: Dictionary = {
       description:
         "Bots de WhatsApp en producción integrados con los ERPs de los clientes, automatizando todo el ciclo de agendamiento de citas y los flujos de atención al cliente.",
       stack: ["NestJS", "Next.js", "Docker", "VPS"],
-      // TODO: reemplazar con el video real
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "Sistema de Gestión SST",
@@ -743,8 +742,7 @@ const es: Dictionary = {
       description:
         "Plataforma de Seguridad y Salud en el Trabajo — capacitaciones, evaluaciones con validación automática, seguimiento de cumplimiento y documentación de seguridad.",
       stack: ["Node.js", "Express", "Prisma", "PostgreSQL", "Next.js"],
-      // TODO: reemplazar con el video real
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "Monasterio ERP",
@@ -753,8 +751,7 @@ const es: Dictionary = {
       description:
         "ERP institucional que digitaliza operaciones internas y presencia organizacional, construido en colaboración con Tecsup.",
       stack: ["TypeScript", "React", "Figma"],
-      // TODO: reemplazar con el video real
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "PoketVet",
@@ -763,8 +760,7 @@ const es: Dictionary = {
       description:
         "Plataforma de gestión de pacientes con un módulo logístico para compra de equipos.",
       stack: ["Vue.js", "Express"],
-      // TODO: reemplazar con el video real
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
     {
       name: "Dellior",
@@ -773,8 +769,7 @@ const es: Dictionary = {
       description:
         "E-commerce con catálogo completo de productos, precios y detalles — creado para establecer la presencia online de la panadería.",
       stack: ["React", "Tailwind CSS"],
-      // TODO: reemplazar con el video real
-      video: "/MetalOps/VideoMetalOps.mp4",
+      // Add this project’s own image or video when available.
     },
   ],
   education: [
