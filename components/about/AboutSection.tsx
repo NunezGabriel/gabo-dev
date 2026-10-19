@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { FiDatabase } from "react-icons/fi";
 import Reveal from "@/components/Reveal";
 import { useLanguage } from "@/components/LanguageProvider";
 
@@ -22,17 +23,17 @@ export default function AboutSection() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="glow" />
 
       <div className="relative mx-auto w-full max-w-5xl px-6 pt-16 pb-20 md:pt-52 md:pb-28">
         <Reveal>
-          <p className="kicker">{aboutPage.kicker}</p>
+          <p className="kicker">~/profile</p>
         </Reveal>
 
         <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
           <Reveal delay={80}>
-            <figure>
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border hairline bg-panel">
+            <figure className="profile-file">
+              <div className="console-title"><span className="status-pixel" />gabriel / profile.png<span className="ml-auto">[ GNA ]</span></div>
+              <div className="profile-portrait relative aspect-[4/5] w-full overflow-hidden bg-panel">
                 <Image
                   src="/profilePcitureBgBNocuadro.png"
                   alt={profile.name}
@@ -42,7 +43,7 @@ export default function AboutSection() {
                   className="object-cover grayscale transition-all duration-700 hover:grayscale-0"
                 />
               </div>
-              <figcaption className="mt-3 font-mono text-[11px] tracking-wide text-faint">
+              <figcaption className="profile-caption font-mono text-[10px] tracking-wide text-soft">
                 {profile.location} — {new Date().getFullYear()}
               </figcaption>
             </figure>
@@ -64,20 +65,46 @@ export default function AboutSection() {
                 </Reveal>
               ))}
             </div>
+
+            <Reveal delay={320}>
+              <aside className="community-record" aria-label={`${aboutPage.communityBadge.role} · ${aboutPage.communityBadge.chapter}`}>
+                <div className="community-record-tab" aria-hidden="true"><FiDatabase />community.csv</div>
+                <table>
+                  <caption className="sr-only">{aboutPage.factLabels.community}</caption>
+                  <thead>
+                    <tr><th scope="col">{aboutPage.communityBadge.roleLabel}</th><th scope="col">{aboutPage.factLabels.community}</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="community-record-role">{aboutPage.communityBadge.role}</td>
+                      <td>
+                        <div className="community-record-group">
+                          <span className="gdg-symbol" aria-hidden="true">
+                            <Image src="/brand/gdg-mark.png" alt="" width={800} height={800} sizes="44px" />
+                          </span>
+                          <div><strong>{aboutPage.communityBadge.chapter}</strong><span>{aboutPage.communityBadge.organization}</span></div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p className="community-record-note">{aboutPage.communityBadge.description}</p>
+              </aside>
+            </Reveal>
           </div>
         </div>
 
         <Reveal>
-          <dl className="mt-16 grid grid-cols-1 gap-x-12 sm:grid-cols-2">
+          <dl className="profile-facts mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {facts.map((fact) => (
               <div
                 key={fact.label}
-                className="flex items-baseline justify-between gap-6 border-t hairline py-4"
+                className="profile-fact"
               >
                 <dt className="font-mono text-xs tracking-wide text-faint">
                   {fact.label}
                 </dt>
-                <dd className="text-right text-sm text-ink">{fact.value}</dd>
+                <dd className="mt-2 text-lg text-ink">{fact.value}</dd>
               </div>
             ))}
           </dl>

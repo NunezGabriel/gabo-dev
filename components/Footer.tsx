@@ -15,8 +15,8 @@ export default function Footer() {
   const { dict } = useLanguage();
 
   return (
-    <footer className="w-full border-t hairline">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-10 px-6 py-12 md:flex-row md:items-center">
+    <footer className="site-footer w-full">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-10 px-6 pt-12 pb-20 md:flex-row md:items-center">
         <div className="flex flex-col gap-1.5">
           <p className="text-base text-ink md:text-lg">{dict.footer.message}</p>
           <a
