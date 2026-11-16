@@ -14,7 +14,7 @@ const ExtraSection = () => {
   return (
     <Section
       id="beyond"
-      kicker="~/offline"
+      kicker={aboutPage.beyondKicker}
       title={aboutPage.beyondTitle}
     >
       <div className="off-clock grid grid-cols-1 gap-10 md:grid-cols-3">

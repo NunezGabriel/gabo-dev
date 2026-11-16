@@ -18,7 +18,7 @@ export default function PresentationSection() {
         <div>
           <Reveal>
             <Image
-              src="/profilePcitureBgBNocuadro.png"
+              src="/profile.png"
               alt={profile.name}
               width={72}
               height={72}

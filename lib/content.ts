@@ -23,7 +23,7 @@ export interface Experience {
 
 export interface Project {
   name: string;
-  group: "personal" | "client";
+  group: "personal" | "client" | "community";
   context: string;
   description: string;
   stack: string[];
@@ -106,6 +106,9 @@ export interface Dictionary {
     beyondKicker: string;
     beyondTitle: string;
     beyond: { index: string; title: string; description: string }[];
+    contactKicker: string;
+    contactTitle: string;
+    github: { subtitle: string; alt: string; caption: string; scrollHint: string; less: string; more: string; unavailable: string };
   };
   experience: Experience[];
   projects: Project[];
@@ -151,13 +154,14 @@ const en: Dictionary = {
         { id: "contact", label: "Contact" },
       ],
       "/work": [
-        { id: "client-work", label: "Client work" },
+        { id: "client-work", label: "Collaborations" },
         { id: "personal", label: "Personal" },
       ],
       "/about": [
         { id: "career", label: "Career" },
         { id: "education", label: "Education" },
         { id: "beyond", label: "Beyond the code" },
+        { id: "contact", label: "Contact" },
       ],
     },
   },
@@ -230,8 +234,8 @@ const en: Dictionary = {
     title: "Projects & client work.",
     intro:
       "A selection of what I’ve built and contributed to — from personal products and community tools to production systems shipped for clients.",
-    clientKicker: "01 — Client & team work",
-    personalKicker: "02 — Personal & community",
+    clientKicker: "01 — Clients & collaborations",
+    personalKicker: "02 — Personal projects",
   },
   aboutPage: {
     kicker: "01 — About",
@@ -255,8 +259,19 @@ const en: Dictionary = {
     eduTitle: "Where I learned.",
     certificationsTitle: "Certifications",
     languagesTitle: "Languages",
-    beyondKicker: "04 — Beyond the code",
-    beyondTitle: "Off the clock.",
+    beyondKicker: "Interests",
+    beyondTitle: "Beyond the code.",
+    contactKicker: "Contact",
+    contactTitle: "Let’s connect.",
+    github: {
+      subtitle: "Contributions over the past year",
+      alt: "3D chart of NunezGabriel’s GitHub contributions, from the profile README",
+      caption: "Commits, pull requests and other contributions.",
+      scrollHint: "Scroll sideways to explore the chart.",
+      less: "Less",
+      more: "More",
+      unavailable: "See my activity on GitHub",
+    },
     beyond: [
       {
         index: "01",
@@ -287,7 +302,7 @@ const en: Dictionary = {
       summary:
         "Software development and digital marketing agency building custom applications for diverse clients.",
       highlights: [
-        "Architected and deployed production-ready WhatsApp bots integrated with clients’ ERPs, automating 100% of the appointment scheduling lifecycle.",
+        "Architected and deployed production-ready WhatsApp bots integrated with clients’ CRMs, automating 100% of the appointment scheduling lifecycle.",
         "Leveraged agentic development workflows (Claude Code) to accelerate delivery of complex features while maintaining code quality.",
         "Built scalable backend services with NestJS and high-performance web interfaces with Next.js.",
         "Containerized applications with Docker and managed deployments on cloud VPS environments.",
@@ -379,22 +394,22 @@ const en: Dictionary = {
       // Add this project’s own image or video when available.
     },
     {
-      name: "BingoBTP",
-      group: "personal",
-      context: "GDG · Breaking The Pattern",
+      name: "BingoGDG",
+      group: "community",
+      context: "GDG Arequipa · Breaking The Pattern",
       description:
         "Networking web application for the GDG “Breaking The Pattern” event, deployed on Vercel and Render.",
       stack: ["Next.js", "Express", "Prisma", "PostgreSQL", "Tailwind CSS"],
-      // Add this project’s own image or video when available.
+      video: "/BingoGDG/preview.mp4",
     },
     {
-      name: "WhatsApp AI Bots",
+      name: "WhatsApp CRM Bots",
       group: "client",
       context: "AM Digital · 2026",
       description:
-        "Production WhatsApp bots integrated with clients’ ERPs, automating the full appointment scheduling lifecycle and customer service workflows.",
+        "WhatsApp bots integrated with CRM systems to automate customer service and appointment scheduling.",
       stack: ["NestJS", "Next.js", "Docker", "VPS"],
-      // Add this project’s own image or video when available.
+      video: "/WhatsAppCRM/preview.mp4",
     },
     {
       name: "OHS Management System",
@@ -457,7 +472,7 @@ const en: Dictionary = {
   certifications,
   languages: [
     { name: "Spanish", level: "Native" },
-    { name: "English", level: "Intermediate — Advanced" },
+    { name: "English", level: "B1" },
     { name: "French", level: "Beginner · currently learning" },
   ],
 };
@@ -490,13 +505,14 @@ const es: Dictionary = {
         { id: "contact", label: "Contacto" },
       ],
       "/work": [
-        { id: "client-work", label: "Clientes" },
+        { id: "client-work", label: "Colaboraciones" },
         { id: "personal", label: "Personal" },
       ],
       "/about": [
         { id: "career", label: "Trayectoria" },
         { id: "education", label: "Educación" },
         { id: "beyond", label: "Más allá del código" },
+        { id: "contact", label: "Contacto" },
       ],
     },
   },
@@ -569,8 +585,8 @@ const es: Dictionary = {
     title: "Proyectos y trabajo con clientes.",
     intro:
       "Una selección de lo que he construido y en lo que he contribuido — desde productos personales y herramientas para la comunidad hasta sistemas en producción para clientes.",
-    clientKicker: "01 — Clientes y equipos",
-    personalKicker: "02 — Personal y comunidad",
+    clientKicker: "01 — Clientes y colaboraciones",
+    personalKicker: "02 — Proyectos personales",
   },
   aboutPage: {
     kicker: "01 — Sobre mí",
@@ -594,8 +610,19 @@ const es: Dictionary = {
     eduTitle: "Dónde aprendí.",
     certificationsTitle: "Certificaciones",
     languagesTitle: "Idiomas",
-    beyondKicker: "04 — Más allá del código",
-    beyondTitle: "Fuera de horario.",
+    beyondKicker: "Intereses",
+    beyondTitle: "Más allá del código.",
+    contactKicker: "Contacto",
+    contactTitle: "Conectemos.",
+    github: {
+      subtitle: "Contribuciones del último año",
+      alt: "Gráfico 3D de las contribuciones de NunezGabriel en GitHub, desde el README del perfil",
+      caption: "Commits, pull requests y otras contribuciones.",
+      scrollHint: "Desliza para explorar el gráfico.",
+      less: "Menos",
+      more: "Más",
+      unavailable: "Ver mi actividad en GitHub",
+    },
     beyond: [
       {
         index: "01",
@@ -626,7 +653,7 @@ const es: Dictionary = {
       summary:
         "Agencia de desarrollo de software y marketing digital que construye aplicaciones a medida para diversos clientes.",
       highlights: [
-        "Diseñé y desplegué bots de WhatsApp listos para producción, integrados con los ERPs de los clientes, automatizando el 100% del ciclo de agendamiento de citas.",
+        "Diseñé y desplegué bots de WhatsApp listos para producción, integrados con los CRM de los clientes, automatizando el 100% del ciclo de agendamiento de citas.",
         "Apliqué flujos de desarrollo agéntico (Claude Code) para acelerar la entrega de funcionalidades complejas manteniendo la calidad del código.",
         "Construí servicios backend escalables con NestJS e interfaces web de alto rendimiento con Next.js.",
         "Empaqueté aplicaciones en contenedores Docker y gestioné despliegues en entornos VPS en la nube.",
@@ -718,22 +745,22 @@ const es: Dictionary = {
       // Add this project’s own image or video when available.
     },
     {
-      name: "BingoBTP",
-      group: "personal",
-      context: "GDG · Breaking The Pattern",
+      name: "BingoGDG",
+      group: "community",
+      context: "GDG Arequipa · Breaking The Pattern",
       description:
         "Aplicación web de networking para el evento “Breaking The Pattern” del GDG, desplegada en Vercel y Render.",
       stack: ["Next.js", "Express", "Prisma", "PostgreSQL", "Tailwind CSS"],
-      // Add this project’s own image or video when available.
+      video: "/BingoGDG/preview.mp4",
     },
     {
-      name: "WhatsApp AI Bots",
+      name: "WhatsApp CRM Bots",
       group: "client",
       context: "AM Digital · 2026",
       description:
-        "Bots de WhatsApp en producción integrados con los ERPs de los clientes, automatizando todo el ciclo de agendamiento de citas y los flujos de atención al cliente.",
+        "Bots de WhatsApp integrados con CRM para automatizar la atención al cliente y el agendamiento de citas.",
       stack: ["NestJS", "Next.js", "Docker", "VPS"],
-      // Add this project’s own image or video when available.
+      video: "/WhatsAppCRM/preview.mp4",
     },
     {
       name: "Sistema de Gestión SST",
@@ -796,7 +823,7 @@ const es: Dictionary = {
   certifications,
   languages: [
     { name: "Español", level: "Nativo" },
-    { name: "Inglés", level: "Intermedio — Avanzado" },
+    { name: "Inglés", level: "B1" },
     { name: "Francés", level: "Principiante · en aprendizaje" },
   ],
 };

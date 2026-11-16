@@ -40,7 +40,7 @@ export default function HoverVideoPreview({ video, title, children, className }:
 
   const move = (event: PointerEvent<HTMLDivElement>) => {
     if (!video || event.pointerType === "touch" || window.innerWidth < 768 || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    if ((event.target as Element).closest("details, button, a")) { setHovered(false); return; }
+    if ((event.target as Element).closest("button, a")) { setHovered(false); return; }
     const nextX = event.clientX + WIDTH + 32 > window.innerWidth ? event.clientX - WIDTH - 28 : event.clientX + 28;
     const px = Math.max(12, Math.min(nextX, window.innerWidth - WIDTH - 12));
     const py = Math.max(12, Math.min(event.clientY - HEIGHT / 2, window.innerHeight - HEIGHT - 12));
@@ -55,8 +55,8 @@ export default function HoverVideoPreview({ video, title, children, className }:
       <motion.div className="video-preview" aria-hidden="true" style={{ x: reduceMotion ? x : springX, y: reduceMotion ? y : springY, width: WIDTH }}
         initial={{ opacity: 0, scale: reduceMotion ? 1 : .97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: reduceMotion ? 1 : .98 }} transition={{ duration: reduceMotion ? 0 : .18 }}>
         <div className="preview-heading"><span className="status-pixel" />{title}<span className="ml-auto">{lang === "es" ? "VISTA PREVIA" : "PREVIEW"}</span></div>
-        <video src={video} className="aspect-video w-full object-contain" autoPlay={!reduceMotion} muted loop playsInline preload="metadata" />
-        <p>{lang === "es" ? "Esc para cerrar · abre la demo para ver los controles" : "Esc to close · open the demo for playback controls"}</p>
+        <video src={video} className="aspect-video w-full object-contain" autoPlay={!reduceMotion} muted loop playsInline controls={false} disablePictureInPicture disableRemotePlayback preload="metadata" />
+        <p>{lang === "es" ? "Vista previa sin sonido · Esc para cerrar" : "Silent preview · Esc to close"}</p>
       </motion.div>
     }</AnimatePresence>, document.body)}
   </div>;
