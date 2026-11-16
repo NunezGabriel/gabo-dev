@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FiDatabase } from "react-icons/fi";
 import Reveal from "@/components/Reveal";
 import { useLanguage } from "@/components/LanguageProvider";
+import AmericasBackdrop from "./AmericasBackdrop";
 
 export default function AboutSection() {
   const { dict } = useLanguage();
@@ -31,22 +32,25 @@ export default function AboutSection() {
 
         <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
           <Reveal delay={80}>
-            <figure className="profile-file">
-              <div className="console-title"><span className="status-pixel" />gabriel / profile.png<span className="ml-auto">[ GNA ]</span></div>
-              <div className="profile-portrait relative aspect-[4/5] w-full overflow-hidden bg-panel">
-                <Image
-                  src="/profilePcitureBgBNocuadro.png"
-                  alt={profile.name}
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="object-cover grayscale transition-all duration-700 hover:grayscale-0"
-                />
-              </div>
-              <figcaption className="profile-caption font-mono text-[10px] tracking-wide text-soft">
-                {profile.location} — {new Date().getFullYear()}
-              </figcaption>
-            </figure>
+            <div className="profile-map-stage">
+              <AmericasBackdrop />
+              <figure className="profile-file">
+                <div className="console-title"><span className="status-pixel" />gabriel / profile.png<span className="ml-auto">[ GNA ]</span></div>
+                <div className="profile-portrait relative aspect-[4/5] w-full overflow-hidden bg-panel">
+                  <Image
+                    src="/profile.png"
+                    alt={profile.name}
+                    fill
+                    priority
+                    sizes="(max-width: 767px) 70vw, 320px"
+                    className="object-cover grayscale transition-all duration-700 hover:grayscale-0"
+                  />
+                </div>
+                <figcaption className="profile-caption font-mono text-[10px] tracking-wide text-soft">
+                  {profile.location} — {new Date().getFullYear()}
+                </figcaption>
+              </figure>
+            </div>
           </Reveal>
 
           <div className="flex flex-col justify-center">

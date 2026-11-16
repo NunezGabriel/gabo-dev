@@ -303,10 +303,6 @@ p.text-sm, p.text-base, li.text-sm, dd.text-sm { font-size: 1rem; line-height: 1
 
 @media (prefers-reduced-motion: reduce) { .field-toggle { display: none; } }
 
-.project-demo { margin-top: 22px; }
-.project-demo summary { color: var(--accent-ink); cursor: pointer; font-size: 18px; }
-.project-demo video { margin-top: 14px; width: 100%; background: #09090b; }
-
 /* Precise pointer: an actual replacement, never a trail. */
 .data-cursor { display: none; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -327,8 +323,6 @@ p.text-sm, p.text-base, li.text-sm, dd.text-sm { font-size: 1rem; line-height: 1
 .project-media-placeholder { display: flex; height: 100%; align-items: center; justify-content: center; flex-direction: column; gap: 14px; padding: 28px; text-align: center; }
 .project-media-placeholder > span { font-family: var(--font-geist-sans), Arial, sans-serif; font-size: 28px; color: var(--ink); }
 .project-media-placeholder > p { font: 10px var(--font-mono); color: var(--faint); }
-.media-hint { position: absolute; inset: auto 12px 12px; width: fit-content; padding: 7px 10px; background: var(--canvas); color: var(--soft); font: 9px var(--font-mono); }
-.media-hint > span { color: var(--accent-ink); margin-right: 5px; }
 .folder-content > .project-context { font: 10px var(--font-mono); color: var(--soft); margin-bottom: 14px; }
 .project-folder-featured { display: grid; grid-template-columns: 1.2fr 1fr; }
 .project-folder-featured .folder-visual { aspect-ratio: auto; min-height: 310px; }
@@ -342,7 +336,6 @@ p.text-sm, p.text-base, li.text-sm, dd.text-sm { font-size: 1rem; line-height: 1
 @media (max-width: 767px) {
   .project-folder-featured { display: flex; }
   .project-folder-featured .folder-visual { aspect-ratio: 16 / 10; min-height: 0; }
-  .media-hint { display: none; }
 }
 
 

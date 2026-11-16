@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# Original recordings; the portfolio uses the optimized preview videos.
+/public/MetalOps/BingoGDG.mp4
+/public/MetalOps/VideoBotsCRM.mp4
+
 # debug
 npm-debug.log*
 yarn-debug.log*
