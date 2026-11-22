@@ -1,0 +1,17 @@
+/* PixelSnow — React Bits (https://reactbits.dev), Copyright (c) 2026 David Haz.
+   MIT + Commons Clause License. See components/PixelSnow.tsx. */
+
+.pixel-snow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pixel-snow-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}

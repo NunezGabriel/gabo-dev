@@ -98,7 +98,7 @@
 .network-edge-active { stroke: var(--accent); stroke-width: 1.5; }
 .network-orbit { fill: none; stroke: var(--line); stroke-width: .7; stroke-dasharray: 2 9; opacity: .7; vector-effect: non-scaling-stroke; }
 .network-orbit-outer { opacity: .3; }
-.career-map-hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 112px; height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: var(--canvas); border: 1px solid var(--line); border-radius: 50%; box-shadow: 0 0 0 10px var(--canvas), 0 0 0 11px var(--line); }
+.career-map-hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 128px; height: 128px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: var(--canvas); border: 1px solid var(--line); border-radius: 50%; box-shadow: 0 0 0 10px var(--canvas), 0 0 0 11px var(--line); }
 .career-map-hub > span { color: var(--soft); font: 9px var(--font-mono); }
 .career-map-node { position: absolute; left: var(--node-x); top: var(--node-y); transform: translate(-50%, -50%); width: 210px; padding: 15px 16px; text-align: left; border: 1px solid var(--line); border-radius: 8px; background: var(--canvas); transition: border-color .2s ease, box-shadow .2s ease, translate .2s ease; }
 .career-map-node:hover { border-color: var(--faint); translate: 0 -2px; }
@@ -152,7 +152,7 @@
   .career-map-node { width: 180px; padding: 13px; }
   .map-node-period { font-size: 8px; }
   .career-map-node strong { font-size: 16px; }
-  .career-map-hub { width: 90px; height: 90px; }
+  .career-map-hub { width: 108px; height: 108px; }
   .learning-branches { gap: 14px; }
   .learning-leaf { padding: 14px; }
   .learning-leaves { padding-left: 17px; }

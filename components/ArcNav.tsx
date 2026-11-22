@@ -227,7 +227,7 @@ export default function ArcNav({
             aria-label="Gabriel Nuñez — home"
             className="block text-ink transition-opacity duration-200 hover:opacity-70"
           >
-            <LogoMark size={34} />
+            <LogoMark size={48} />
           </Link>
         </div>
         <div

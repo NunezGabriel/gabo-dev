@@ -72,7 +72,7 @@ const Navbar = () => {
             className="flex items-center gap-3"
             aria-label="Gabriel Nuñez — home"
           >
-            <LogoMark size={30} />
+            <LogoMark size={38} />
             <span className="text-[0.95rem] font-medium text-ink">
               {dict.profile.shortName}
             </span>

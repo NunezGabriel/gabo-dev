@@ -383,36 +383,28 @@ p.text-sm, p.text-base, li.text-sm, dd.text-sm { font-size: 1rem; line-height: 1
 .stack-learning div > p:last-child { color: var(--soft); font-size: 13px; line-height: 1.65; margin-top: 8px; max-width: 440px; }
 .stack-learning > .stack-tools { flex: 0 0 250px; justify-content: flex-end; }
 
-/* Contact: a direct invitation and an email dial. */
-.contact-section { width: 100%; max-width: 1100px; margin-inline: auto; padding: 40px 24px; }
-.contact-panel { padding: 48px; border: 1px solid var(--line); border-radius: 10px; background: var(--canvas); }
-.contact-main { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 56px; }
-.contact-message .kicker { display: flex; align-items: center; gap: 10px; }
-.contact-message .kicker > span { display: block; width: 25px; height: 2px; background: var(--accent); }
-.contact-message h2 { max-width: 450px; margin-top: 24px; font-size: clamp(36px, 4vw, 50px); line-height: 1.12; letter-spacing: -.045em; text-wrap: balance; }
-.contact-blurb { max-width: 390px; margin-top: 22px; font-size: 15px; line-height: 1.8; color: var(--soft); }
-.contact-direct { min-width: 0; padding: 24px; border-radius: 8px; background: var(--panel); }
-.contact-channel { display: flex; justify-content: space-between; align-items: center; gap: 12px; font: 10px var(--font-mono); color: var(--soft); }
-.copy-email { display: flex; align-items: center; gap: 7px; min-height: 36px; padding: 6px 0 6px 8px; color: var(--soft); font: 11px var(--font-mono); }
-.copy-email:hover { color: var(--accent-ink); }
-.copy-email svg { width: 14px; height: 14px; }
-.contact-address { display: grid; grid-template-columns: 1fr 72px; gap: 24px 12px; align-items: center; margin-top: 20px; }
-.contact-action { font-size: 26px; letter-spacing: -.035em; }
-.contact-dial { position: relative; display: grid; place-items: center; width: 72px; height: 72px; }
-.contact-dial > svg:first-child { position: absolute; inset: 0; width: 100%; height: 100%; stroke: var(--faint); stroke-width: 1; transition: transform .5s ease; }
-.contact-dial > svg:last-child { width: 28px; height: 28px; color: var(--accent-ink); transition: transform .3s ease; }
-.contact-address:hover .contact-dial > svg:first-child { transform: rotate(30deg); }
-.contact-address:hover .contact-dial > svg:last-child { transform: translate(3px, -3px); }
-.contact-email { grid-column: 1 / -1; font-size: 14px; overflow-wrap: anywhere; color: var(--soft); line-height: 1.65; }
-.contact-address:hover .contact-email { color: var(--ink); }
-.contact-bottom { display: flex; justify-content: space-between; align-items: center; gap: 28px; border-top: 1px solid var(--line); margin-top: 40px; padding-top: 24px; }
-.contact-location { color: var(--soft); font: 10px var(--font-mono); white-space: nowrap; }
-.contact-socials { display: flex; flex-wrap: wrap; gap: 10px 24px; }
-.contact-socials a { display: flex; align-items: center; gap: 7px; min-height: 36px; font-size: 12px; color: var(--soft); }
-.contact-socials a > svg:first-child { width: 15px; height: 15px; }
-.contact-socials .social-arrow { width: 12px; color: var(--faint); transition: transform .2s ease; }
+/* Contact: full-bleed closing section with a PixelSnow backdrop.
+   The opaque canvas hides the site-wide letter field here; the top gradient
+   lets the letters fade out instead of ending on a hard line. */
+.contact-section { position: relative; isolation: isolate; display: grid; place-items: center; width: 100%; min-height: min(88vh, 860px); padding: 140px 24px 120px; overflow: hidden; background: linear-gradient(to bottom, transparent, var(--canvas) 140px); }
+.pixel-snow-container.contact-snow { position: absolute; inset: 0; z-index: -1; pointer-events: none; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 120px); mask-image: linear-gradient(to bottom, transparent, #000 120px); }
+.contact-inner { width: 100%; max-width: 960px; text-align: center; }
+.contact-kicker { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.contact-kicker > span { display: block; width: 25px; height: 2px; background: var(--accent); }
+.contact-title { margin: 28px auto 0; max-width: 15ch; font-size: clamp(44px, 7.4vw, 96px); font-weight: 500; line-height: 1.02; letter-spacing: -.055em; text-wrap: balance; }
+.contact-blurb { max-width: 520px; margin: 28px auto 0; font-size: 16px; line-height: 1.8; color: var(--soft); text-wrap: balance; }
+.contact-direct { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 28px; margin-top: 48px; }
+.contact-email { font: 16px var(--font-mono); color: var(--ink); overflow-wrap: anywhere; user-select: all; }
+.contact-hello { display: inline-flex; align-items: center; gap: 4px; padding: 12px 22px 12px 26px; font-size: 15px; font-weight: 500; transition: opacity .2s ease; }
+.contact-socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 36px; margin-top: 64px; }
+.contact-socials a { display: flex; align-items: center; gap: 9px; min-height: 44px; font-size: 15px; color: var(--soft); }
+.contact-socials a > svg:first-child { width: 19px; height: 19px; }
+.contact-socials .social-arrow { width: 14px; height: 14px; color: var(--faint); transition: transform .2s ease; }
 .contact-socials a:hover { color: var(--ink); }
 .contact-socials a:hover .social-arrow { color: var(--accent-ink); transform: translate(2px, -2px); }
+.contact-location { margin-top: 20px; color: var(--faint); font: 10px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+/* The snow runs straight into the footer instead of leaving a gap. */
+body:has(.contact-section) .site-footer { margin-top: 0; }
 @media (max-width: 767px) {
   .stack-grid { grid-template-columns: 1fr; }
   .stack-area { padding: 24px; }
@@ -420,13 +412,9 @@ p.text-sm, p.text-base, li.text-sm, dd.text-sm { font-size: 1rem; line-height: 1
   .architecture-groups { gap: 16px; }
   .stack-learning { flex-direction: column; align-items: flex-start; gap: 20px; padding: 24px; }
   .stack-learning > .stack-tools { flex: auto; justify-content: flex-start; }
-  .contact-panel { padding: 28px; }
-  .contact-main { grid-template-columns: 1fr; gap: 32px; }
-  .contact-message h2 { max-width: 380px; font-size: 38px; }
-  .contact-direct { padding: 20px; }
-  .contact-bottom { align-items: flex-start; flex-direction: column; gap: 16px; }
-  .contact-socials { gap: 8px 20px; }
-  .contact-socials a { min-height: 44px; }
+  .contact-section { min-height: 0; padding: 112px 20px 88px; }
+  .contact-socials { gap: 4px 24px; margin-top: 48px; }
+  .contact-email { font-size: 14px; }
 }
 @media (max-width: 479px) {
   .stack-area { padding: 22px; }
@@ -436,9 +424,4 @@ p.text-sm, p.text-base, li.text-sm, dd.text-sm { font-size: 1rem; line-height: 1
   .stack-tools-prominent li { padding: 14px 9px; flex-basis: 64px; font-size: 12px; }
   .stack-architecture { grid-template-columns: 1fr; }
   .architecture-illustration { display: none; }
-  .contact-panel { padding: 24px; }
-  .contact-address { grid-template-columns: 1fr 62px; }
-  .contact-dial { width: 62px; height: 62px; }
-  .contact-action { font-size: 24px; }
-  .contact-email { font-size: 13px; }
 }

@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { FiArrowUpRight, FiCheck, FiCopy } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
+import { IoIosArrowRoundForward } from "react-icons/io";
 import { SiGithub, SiLinkedin, SiInstagram, SiX } from "react-icons/si";
 import Reveal from "./Reveal";
+import PixelSnow from "./PixelSnow";
 import { useLanguage } from "./LanguageProvider";
 import { socials } from "@/lib/content";
 
@@ -14,46 +15,42 @@ const contactLinks = [
   { label: "X / Twitter", href: socials.x, Icon: SiX },
 ];
 
+// Full-bleed closing section. PixelSnow settings tuned on reactbits.dev:
+// color #10b981, speed 0.15, density 0.15, square, opacity 0.45, glow 0.75,
+// brightness 1.35, no mouse interaction. Other props keep the demo defaults.
 export default function ContactSection() {
   const { dict, lang } = useLanguage();
   const es = lang === "es";
-  const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [mailbox, domain] = dict.profile.email.split("@");
-
-  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
-
-  const copyEmail = async () => {
-    if (timer.current) clearTimeout(timer.current);
-    try {
-      await navigator.clipboard.writeText(dict.profile.email);
-      setCopyState("copied");
-    } catch {
-      setCopyState("error");
-    }
-    timer.current = setTimeout(() => setCopyState("idle"), 3000);
-  };
 
   return <section id="contact" className="contact-section">
-    <Reveal>
-      <div className="contact-panel">
-        <div className="contact-main">
-          <div className="contact-message">
-            <p className="kicker"><span aria-hidden="true" />{es ? "Conversemos" : "Get in touch"}</p>
-            <h2>{dict.contact.title}</h2>
-            <p className="contact-blurb">{dict.contact.blurb}</p>
-          </div>
-          <div className="contact-direct">
-            <div className="contact-channel"><span>EMAIL</span><button type="button" onClick={copyEmail} className="copy-email" aria-label={es ? "Copiar correo electrónico" : "Copy email address"}>{copyState === "copied" ? <FiCheck aria-hidden="true" /> : <FiCopy aria-hidden="true" />}<span aria-live="polite">{copyState === "copied" ? (es ? "Copiado" : "Copied") : copyState === "error" ? (es ? "No se pudo copiar" : "Could not copy") : (es ? "Copiar" : "Copy")}</span></button></div>
-            <a href={socials.email} className="contact-address">
-              <span className="contact-action">{es ? "Escríbeme" : "Say hello"}</span>
-              <span className="contact-dial" aria-hidden="true"><svg viewBox="0 0 80 80">{Array.from({length:12},(_,i)=><path key={i} d="M40 3V8" transform={"rotate(" + i * 30 + " 40 40)"} />)}</svg><FiArrowUpRight /></span>
-              <span className="contact-email">{mailbox}<wbr />@{domain}</span>
-            </a>
-          </div>
+    <PixelSnow
+      className="contact-snow"
+      aria-hidden="true"
+      color="#10b981"
+      variant="square"
+      speed={0.15}
+      density={0.15}
+      opacity={0.45}
+      glow={0.75}
+      brightness={1.35}
+      mouseInteraction={false}
+    />
+    <div className="contact-inner">
+      <Reveal>
+        <p className="kicker contact-kicker"><span aria-hidden="true" />{es ? "Conversemos" : "Get in touch"}<span aria-hidden="true" /></p>
+        <h2 className="contact-title">{dict.contact.title}</h2>
+        <p className="contact-blurb">{dict.contact.blurb}</p>
+        <div className="contact-direct">
+          <span className="contact-email">{dict.profile.email}</span>
+          <a href={socials.email} className="navButton pixel-button contact-hello">
+            {es ? "Escríbeme" : "Say hello"}<IoIosArrowRoundForward className="arrow" size={22} aria-hidden="true" />
+          </a>
         </div>
-        <div className="contact-bottom"><span className="contact-location">{dict.profile.location}</span><div className="contact-socials">{contactLinks.map(({label,href,Icon})=><a key={label} href={href} target="_blank" rel="noreferrer"><Icon aria-hidden="true" /><span>{label}</span><FiArrowUpRight className="social-arrow" aria-hidden="true" /></a>)}</div></div>
-      </div>
-    </Reveal>
+        <div className="contact-socials">
+          {contactLinks.map(({ label, href, Icon }) => <a key={label} href={href} target="_blank" rel="noreferrer"><Icon aria-hidden="true" /><span>{label}</span><FiArrowUpRight className="social-arrow" aria-hidden="true" /></a>)}
+        </div>
+        <p className="contact-location">{dict.profile.location}</p>
+      </Reveal>
+    </div>
   </section>;
 }
