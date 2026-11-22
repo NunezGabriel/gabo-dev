@@ -18,13 +18,12 @@ export default function DataField() {
     const pointer = { x: -1000, y: -1000 };
     let width = 0, height = 0, columns = 0, frame = 0, lastFrame = 0, lastChange = 0, tick = 0;
     let glyphs: string[] = [];
-    let dark = document.documentElement.classList.contains("dark");
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
       ctx.font = "12px monospace";
       ctx.textAlign = "center";
-      const base = dark ? 215 : 35;
+      const base = 215;
       const green = [31, 129, 127];
       glyphs.forEach((glyph, i) => {
         const x = (i % columns) * 26 + 13;
@@ -32,7 +31,7 @@ export default function DataField() {
         const distance = Math.hypot(x - pointer.x, y - pointer.y);
         const light = Math.max(0, 1 - distance / 170);
         const color = green.map(channel => Math.round(base + (channel - base) * light));
-        ctx.fillStyle = `rgba(${color.join(",")},${(dark ? .075 : .05) + light * .6})`;
+        ctx.fillStyle = `rgba(${color.join(",")},${.075 + light * .6})`;
         ctx.fillText(glyph, x, y);
       });
     };
@@ -74,15 +73,8 @@ export default function DataField() {
       pointer.y = event.clientY;
     };
     const leave = () => { pointer.x = pointer.y = -1000; };
-    const theme = new MutationObserver(() => {
-      const nextDark = document.documentElement.classList.contains("dark");
-      if (nextDark === dark) return;
-      dark = nextDark;
-      draw();
-    });
     resize();
     sync();
-    theme.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     window.addEventListener("resize", resize);
     window.addEventListener("pointermove", move, { passive: true });
     window.addEventListener("blur", leave);
@@ -91,7 +83,6 @@ export default function DataField() {
     reduced.addEventListener("change", sync);
     return () => {
       cancelAnimationFrame(frame);
-      theme.disconnect();
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", move);
       window.removeEventListener("blur", leave);

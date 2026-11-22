@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import LogoMark from "./LogoMark";
-import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "./LanguageProvider";
 
@@ -236,7 +235,6 @@ export default function ArcNav({
           style={{ right: "max(1.25rem, calc(50% - 560px))", top: 24 }}
         >
           <LanguageToggle />
-          <ThemeToggle />
         </div>
       </div>
     </>

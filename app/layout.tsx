@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -23,7 +23,11 @@ export const metadata: Metadata = {
     "Backend developer focused on Java and Spring Boot, with Django, Express and Ruby experience. Currently learning Data Engineering with Python, pandas, Conda and Jupyter. Based in Arequipa, Perú.",
 };
 
-const themeInit = `(function(){try{if(localStorage.getItem("theme")==="dark"){document.documentElement.classList.add("dark")}}catch(e){}})()`;
+// Dark-only site: tint the mobile browser bar and native controls to match.
+export const viewport: Viewport = {
+  themeColor: "#09090b",
+  colorScheme: "dark",
+};
 
 export default function RootLayout({
   children,
@@ -32,9 +36,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
-      </head>
       <body
         className={`${geist.variable} ${geistMono.variable}`}
       >

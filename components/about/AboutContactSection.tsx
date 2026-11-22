@@ -18,18 +18,20 @@ export default function AboutContactSection() {
 
   return (
     <Section id="contact" kicker={dict.aboutPage.contactKicker} title={dict.aboutPage.contactTitle}>
-      <GitHubActivity />
-      <ul className="about-social-links">
-        {profiles.map(({ name, href, Icon }) => (
-          <li key={name}>
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              <Icon className="about-social-icon" aria-hidden="true" />
-              <span>{name}</span>
-              <FiArrowUpRight className="about-social-arrow" aria-hidden="true" />
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div className="about-connect">
+        <GitHubActivity />
+        <ul className="about-social-links">
+          {profiles.map(({ name, href, Icon }) => (
+            <li key={name}>
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                <Icon className="about-social-icon" aria-hidden="true" />
+                <span>{name}</span>
+                <FiArrowUpRight className="about-social-arrow" aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </Section>
   );
 }

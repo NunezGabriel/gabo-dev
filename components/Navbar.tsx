@@ -7,7 +7,6 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import ArcNav from "./ArcNav";
 import LogoMark from "./LogoMark";
-import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "./LanguageProvider";
 import { socials } from "@/lib/content";
@@ -81,7 +80,6 @@ const Navbar = () => {
 
           <div className="flex items-center gap-2">
             <LanguageToggle />
-            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}

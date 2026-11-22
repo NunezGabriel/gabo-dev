@@ -37,8 +37,7 @@
 .github-profile-link svg { width: 16px; height: 16px; color: var(--accent-ink); }
 .github-chart-viewport { overflow-x: auto; scrollbar-color: var(--accent) var(--panel); scrollbar-width: thin; }
 .github-chart-viewport:focus-visible, .github-profile-link:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
-.github-contribution-chart { display: block; width: 100%; min-width: 680px; height: auto; color-scheme: light; }
-.dark .github-contribution-chart { color-scheme: dark; }
+.github-contribution-chart { display: block; width: 100%; min-width: 680px; height: auto; color-scheme: dark; }
 .github-chart-unavailable { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px; min-height: 160px; padding: 28px; color: var(--soft); text-align: center; }
 .github-chart-unavailable svg { width: 22px; height: 22px; color: var(--accent-ink); }
 .github-chart-unavailable:hover { color: var(--ink); }
@@ -47,17 +46,19 @@
 .github-chart-legend > span:first-child { margin-right: 4px; }
 .github-chart-legend > span:last-child { margin-left: 4px; }
 .github-chart-legend i { display: block; width: 10px; height: 10px; }
-.github-chart-legend [data-level="0"] { background: #e5e8e8; }
-.github-chart-legend [data-level="1"] { background: #badad5; }
-.github-chart-legend [data-level="2"] { background: #76b6ac; }
-.github-chart-legend [data-level="3"] { background: #40988e; }
-.github-chart-legend [data-level="4"] { background: #1f817f; }
-.dark .github-chart-legend [data-level="0"] { background: #202728; }
-.dark .github-chart-legend [data-level="1"] { background: #164a47; }
-.dark .github-chart-legend [data-level="2"] { background: #1f817f; }
-.dark .github-chart-legend [data-level="3"] { background: #39a496; }
-.dark .github-chart-legend [data-level="4"] { background: #79ccae; }
+.github-chart-legend [data-level="0"] { background: #202728; }
+.github-chart-legend [data-level="1"] { background: #164a47; }
+.github-chart-legend [data-level="2"] { background: #1f817f; }
+.github-chart-legend [data-level="3"] { background: #39a496; }
+.github-chart-legend [data-level="4"] { background: #79ccae; }
 .github-scroll-hint { display: none; }
+/* Wide screens: social links sit in a column beside the GitHub card. Below
+   1024px the chart (min 680px) needs the full width, so links stack under it. */
+@media (min-width: 1024px) {
+  .about-connect { display: grid; grid-template-columns: minmax(0, 1fr) 208px; gap: 12px; align-items: start; }
+  .about-connect .github-activity { margin-bottom: 0; }
+  .about-connect .about-social-links { grid-template-columns: 1fr; }
+}
 @media (max-width: 767px) {
   .github-activity-header { align-items: flex-start; flex-direction: column; gap: 8px; padding: 20px; }
   .github-profile-link { min-height: 34px; }
