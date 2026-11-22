@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import LogoMark from "./LogoMark";
-import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "./LanguageProvider";
 
@@ -228,7 +227,7 @@ export default function ArcNav({
             aria-label="Gabriel Nuñez — home"
             className="block text-ink transition-opacity duration-200 hover:opacity-70"
           >
-            <LogoMark size={34} />
+            <LogoMark size={48} />
           </Link>
         </div>
         <div
@@ -236,7 +235,6 @@ export default function ArcNav({
           style={{ right: "max(1.25rem, calc(50% - 560px))", top: 24 }}
         >
           <LanguageToggle />
-          <ThemeToggle />
         </div>
       </div>
     </>

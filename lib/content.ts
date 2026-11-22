@@ -30,6 +30,8 @@ export interface Project {
   video?: string;
   image?: string;
   href?: string;
+  /** Shown in the home page’s “A few things I’ve made”, in array order. */
+  featured?: boolean;
 }
 
 export interface Education {
@@ -396,11 +398,12 @@ const en: Dictionary = {
     {
       name: "BingoGDG",
       group: "community",
-      context: "GDG Arequipa · Breaking The Pattern",
+      context: "GDG Arequipa · Community app",
       description:
-        "Networking web application for the GDG “Breaking The Pattern” event, deployed on Vercel and Render.",
+        "Web app used across every GDG Arequipa event, not just one. Attendees complete missions — like asking a speaker a question — and an organizer scans their QR code to validate each one, so they can redeem rewards. It also includes a networking bingo.",
       stack: ["Next.js", "Express", "Prisma", "PostgreSQL", "Tailwind CSS"],
       video: "/BingoGDG/preview.mp4",
+      featured: true,
     },
     {
       name: "WhatsApp CRM Bots",
@@ -410,6 +413,7 @@ const en: Dictionary = {
         "WhatsApp bots integrated with CRM systems to automate customer service and appointment scheduling.",
       stack: ["NestJS", "Next.js", "Docker", "VPS"],
       video: "/WhatsAppCRM/preview.mp4",
+      featured: true,
     },
     {
       name: "OHS Management System",
@@ -747,11 +751,12 @@ const es: Dictionary = {
     {
       name: "BingoGDG",
       group: "community",
-      context: "GDG Arequipa · Breaking The Pattern",
+      context: "GDG Arequipa · App de comunidad",
       description:
-        "Aplicación web de networking para el evento “Breaking The Pattern” del GDG, desplegada en Vercel y Render.",
+        "Aplicación web que se usa en todos los eventos de GDG Arequipa, no solo en uno. Los asistentes cumplen misiones —como hacerle una pregunta a un ponente— y un organizador escanea su código QR para validar cada una; así pueden canjear premios. También incluye un bingo de networking.",
       stack: ["Next.js", "Express", "Prisma", "PostgreSQL", "Tailwind CSS"],
       video: "/BingoGDG/preview.mp4",
+      featured: true,
     },
     {
       name: "WhatsApp CRM Bots",
@@ -761,6 +766,7 @@ const es: Dictionary = {
         "Bots de WhatsApp integrados con CRM para automatizar la atención al cliente y el agendamiento de citas.",
       stack: ["NestJS", "Next.js", "Docker", "VPS"],
       video: "/WhatsAppCRM/preview.mp4",
+      featured: true,
     },
     {
       name: "Sistema de Gestión SST",

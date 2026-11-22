@@ -37,8 +37,7 @@
 .github-profile-link svg { width: 16px; height: 16px; color: var(--accent-ink); }
 .github-chart-viewport { overflow-x: auto; scrollbar-color: var(--accent) var(--panel); scrollbar-width: thin; }
 .github-chart-viewport:focus-visible, .github-profile-link:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
-.github-contribution-chart { display: block; width: 100%; min-width: 680px; height: auto; color-scheme: light; }
-.dark .github-contribution-chart { color-scheme: dark; }
+.github-contribution-chart { display: block; width: 100%; min-width: 680px; height: auto; color-scheme: dark; }
 .github-chart-unavailable { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px; min-height: 160px; padding: 28px; color: var(--soft); text-align: center; }
 .github-chart-unavailable svg { width: 22px; height: 22px; color: var(--accent-ink); }
 .github-chart-unavailable:hover { color: var(--ink); }
@@ -47,17 +46,19 @@
 .github-chart-legend > span:first-child { margin-right: 4px; }
 .github-chart-legend > span:last-child { margin-left: 4px; }
 .github-chart-legend i { display: block; width: 10px; height: 10px; }
-.github-chart-legend [data-level="0"] { background: #e5e8e8; }
-.github-chart-legend [data-level="1"] { background: #badad5; }
-.github-chart-legend [data-level="2"] { background: #76b6ac; }
-.github-chart-legend [data-level="3"] { background: #40988e; }
-.github-chart-legend [data-level="4"] { background: #1f817f; }
-.dark .github-chart-legend [data-level="0"] { background: #202728; }
-.dark .github-chart-legend [data-level="1"] { background: #164a47; }
-.dark .github-chart-legend [data-level="2"] { background: #1f817f; }
-.dark .github-chart-legend [data-level="3"] { background: #39a496; }
-.dark .github-chart-legend [data-level="4"] { background: #79ccae; }
+.github-chart-legend [data-level="0"] { background: #202728; }
+.github-chart-legend [data-level="1"] { background: #164a47; }
+.github-chart-legend [data-level="2"] { background: #1f817f; }
+.github-chart-legend [data-level="3"] { background: #39a496; }
+.github-chart-legend [data-level="4"] { background: #79ccae; }
 .github-scroll-hint { display: none; }
+/* Wide screens: social links sit in a column beside the GitHub card. Below
+   1024px the chart (min 680px) needs the full width, so links stack under it. */
+@media (min-width: 1024px) {
+  .about-connect { display: grid; grid-template-columns: minmax(0, 1fr) 208px; gap: 12px; align-items: start; }
+  .about-connect .github-activity { margin-bottom: 0; }
+  .about-connect .about-social-links { grid-template-columns: 1fr; }
+}
 @media (max-width: 767px) {
   .github-activity-header { align-items: flex-start; flex-direction: column; gap: 8px; padding: 20px; }
   .github-profile-link { min-height: 34px; }
@@ -97,7 +98,7 @@
 .network-edge-active { stroke: var(--accent); stroke-width: 1.5; }
 .network-orbit { fill: none; stroke: var(--line); stroke-width: .7; stroke-dasharray: 2 9; opacity: .7; vector-effect: non-scaling-stroke; }
 .network-orbit-outer { opacity: .3; }
-.career-map-hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 112px; height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: var(--canvas); border: 1px solid var(--line); border-radius: 50%; box-shadow: 0 0 0 10px var(--canvas), 0 0 0 11px var(--line); }
+.career-map-hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 128px; height: 128px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: var(--canvas); border: 1px solid var(--line); border-radius: 50%; box-shadow: 0 0 0 10px var(--canvas), 0 0 0 11px var(--line); }
 .career-map-hub > span { color: var(--soft); font: 9px var(--font-mono); }
 .career-map-node { position: absolute; left: var(--node-x); top: var(--node-y); transform: translate(-50%, -50%); width: 210px; padding: 15px 16px; text-align: left; border: 1px solid var(--line); border-radius: 8px; background: var(--canvas); transition: border-color .2s ease, box-shadow .2s ease, translate .2s ease; }
 .career-map-node:hover { border-color: var(--faint); translate: 0 -2px; }
@@ -151,7 +152,7 @@
   .career-map-node { width: 180px; padding: 13px; }
   .map-node-period { font-size: 8px; }
   .career-map-node strong { font-size: 16px; }
-  .career-map-hub { width: 90px; height: 90px; }
+  .career-map-hub { width: 108px; height: 108px; }
   .learning-branches { gap: 14px; }
   .learning-leaf { padding: 14px; }
   .learning-leaves { padding-left: 17px; }

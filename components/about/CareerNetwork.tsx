@@ -30,7 +30,7 @@ export default function CareerNetwork() {
           return <g key={jobs[i].company}><path d={d} className="network-edge" />{selected === i && <motion.path d={d} className="network-edge-active" initial={{pathLength: reducedMotion ? 1 : 0}} animate={{pathLength:1}} transition={{duration: reducedMotion ? 0 : .55, ease:"easeInOut"}} />}</g>;
         })}
       </svg>
-      <div className="career-map-hub" aria-hidden="true"><LogoMark size={34} /><span>{es ? "Mi trayectoria" : "My career"}</span></div>
+      <div className="career-map-hub" aria-hidden="true"><LogoMark size={52} /><span>{es ? "Mi trayectoria" : "My career"}</span></div>
       <div className="career-map-nodes" role="group" aria-label={es ? "Explorar trabajos" : "Explore work experience"}>
         {jobs.map((entry, i) => <button type="button" key={entry.company} className="career-map-node" data-active={selected === i} aria-pressed={selected === i} aria-controls={detailId} onClick={()=>setSelected(i)} style={{"--node-x":positions[i].x / 10 + "%", "--node-y":positions[i].y / 4.8 + "%"} as CSSProperties}>
           <span className="map-node-period">{entry.period}<span className="map-node-port" aria-hidden="true" /></span>
